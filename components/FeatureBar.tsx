@@ -15,10 +15,10 @@ const features = [
     icon: MapPin,
     title: (
       <>
-        <span className="text-[#01e044]">1000+ Dealers</span> worldwide
+        <span className="text-[#01e044]">50+ </span> Dealers
       </>
     ),
-    desc: "Comprehensive service network",
+    desc: "Wide service network",
   },
   {
     icon: Wrench,
@@ -33,7 +33,7 @@ const features = [
     icon: Award,
     title: (
       <>
-        <span className="text-[#01e044]">Best in test</span> 1000PS 2025
+        <span className="text-[#01e044]">Best in test</span> 1000PS
       </>
     ),
     desc: "Ranked #1",
@@ -64,8 +64,9 @@ export default function FeatureBar() {
         <div
           className="
             flex w-full
-            flex-col gap-4
+            flex-col items-center gap-4
             sm:flex-row
+            sm:justify-center
             xl:w-auto
             xl:shrink-0
           "
@@ -118,17 +119,24 @@ export default function FeatureBar() {
             w-full
             grid-cols-1
             gap-6
-            sm:grid-cols-2
-            sm:gap-8
+            sm:flex
+            sm:flex-row
+            sm:flex-nowrap
+            sm:items-center
+            sm:justify-between
+            sm:gap-6
             xl:w-auto
-            xl:grid-cols-3
+            xl:gap-10
           "
         >
           {features.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div key={index} className="flex min-w-0 items-center gap-4">
+              <div
+                key={index}
+                className="flex min-w-0 items-center gap-4 sm:flex-1 sm:basis-0"
+              >
                 <Icon
                   size={42}
                   strokeWidth={1.8}
