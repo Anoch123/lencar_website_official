@@ -23,7 +23,7 @@ const slides = [
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/erc-80" },
   },
   {
-    background: "/images/img2.png",
+    background: "/images/img3.png",
     video: "",
     dark: true,
     heading: "LENCAR ZIVI",
