@@ -149,10 +149,10 @@ export default function CreativeSlider() {
 
           <div className="slider-pagination" />
 
-          <div className="slider-nav">
-            <span className="charge-track">
-            <span className="charge-bar" key={activeIndex} />
-          </span>
+          <div className="slider-nav hidden md:flex">
+            <span className="charge-track hidden md:flex">
+              <span className="charge-bar hidden md:flex" key={activeIndex} />
+            </span>
           </div>
         </div>
       </Swiper>

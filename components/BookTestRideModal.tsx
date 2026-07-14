@@ -107,39 +107,39 @@ export default function BookTestRideModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div className="relative flex max-h-[92vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-white shadow-2xl sm:max-h-[88vh]">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-[#6b6b70] transition-colors hover:bg-[#f5f4f1] hover:text-[#0b0b0c]"
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full text-[#6b6b70] transition-colors hover:bg-[#f5f4f1] hover:text-[#0b0b0c] sm:right-4 sm:top-4"
           aria-label="Close"
         >
           <X size={20} strokeWidth={1.8} />
         </button>
 
-        <div className="p-8">
+        <div className="overflow-y-auto p-5 sm:p-8">
           {!submitted ? (
             <>
               <div className="pr-8">
-                <p className="font-body text-[13px] font-bold uppercase tracking-[0.12em] text-[#e30613]">
+                <p className="font-body text-[12px] font-bold uppercase tracking-[0.12em] text-[#e30613] sm:text-[13px]">
                   Book a test ride
                 </p>
-                <h2 className="font-display mt-3 text-[28px] font-black uppercase italic leading-[1.05] tracking-tight text-[#0b0b0c]">
+                <h2 className="font-display mt-1.5 text-[22px] font-black uppercase italic leading-[1.05] tracking-tight text-[#0b0b0c] sm:mt-3 sm:text-[28px]">
                   Feel the ride
                 </h2>
-                <p className="font-body mt-2 text-[14px] leading-relaxed text-[#6b6b70]">
+                <p className="font-body mt-1.5 text-[13px] leading-relaxed text-[#6b6b70] sm:mt-2 sm:text-[14px]">
                   Fill in your details and we&apos;ll get back to you to schedule your test ride.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <form onSubmit={handleSubmit} className="mt-4 space-y-3 sm:mt-6 sm:space-y-4">
                 <div>
-                  <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                  <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                     Full name <span className="text-[#e30613]">*</span>
                   </label>
                   <input
@@ -147,13 +147,13 @@ export default function BookTestRideModal({
                     value={formData.fullName}
                     onChange={(e) => updateField("fullName", e.target.value)}
                     placeholder="Your name"
-                    className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                   <div>
-                    <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                    <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                       Email <span className="text-[#e30613]">*</span>
                     </label>
                     <input
@@ -162,12 +162,12 @@ export default function BookTestRideModal({
                       value={formData.email}
                       onChange={(e) => updateField("email", e.target.value)}
                       placeholder="you@example.com"
-                      className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                     />
                   </div>
 
                   <div>
-                    <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                    <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                       Phone <span className="text-[#e30613]">*</span>
                     </label>
                     <input
@@ -176,20 +176,20 @@ export default function BookTestRideModal({
                       value={formData.phone}
                       onChange={(e) => updateField("phone", e.target.value)}
                       placeholder="+94 77 123 4567"
-                      className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                   <div>
-                    <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                    <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                       Preferred bike
                     </label>
                     <select
                       value={formData.bike}
                       onChange={(e) => updateField("bike", e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                     >
                       <option value="">Select a bike</option>
                       {bikes.map((bike) => (
@@ -201,50 +201,50 @@ export default function BookTestRideModal({
                   </div>
 
                   <div>
-                    <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                    <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                       Preferred date
                     </label>
                     <input
                       type="date"
                       value={formData.date}
                       onChange={(e) => updateField("date", e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                  <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                     Preferred time
                   </label>
                   <input
                     type="time"
                     value={formData.time}
                     onChange={(e) => updateField("time", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613]"
+                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                   />
                 </div>
 
                 <div>
-                  <label className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60">
+                  <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                     Message
                   </label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => updateField("message", e.target.value)}
                     placeholder="Any specific requests or questions?"
-                    rows={3}
-                    className="mt-1.5 w-full resize-none rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-3 text-[15px] text-[#0b0b0c] placeholder:text-[#0b0b0c]/30 outline-none transition-colors focus:border-[#e30613]"
+                    rows={2}
+                    className="mt-1 w-full resize-none rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] placeholder:text-[#0b0b0c]/30 outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-3"
                   />
                 </div>
 
                 {submitError ? (
-                  <p className="rounded-xl border border-[#e30613]/20 bg-[#e30613]/5 px-4 py-3 text-[13px] leading-relaxed text-[#c90512]">
+                  <p className="rounded-xl border border-[#e30613]/20 bg-[#e30613]/5 px-4 py-2.5 text-[13px] leading-relaxed text-[#c90512] sm:py-3">
                     {submitError}
                   </p>
                 ) : null}
 
-                <div className="flex items-center justify-end gap-3 pt-2">
+                <div className="flex items-center justify-end gap-3 pt-1 sm:pt-2">
                   <button
                     type="button"
                     onClick={onClose}
@@ -255,7 +255,7 @@ export default function BookTestRideModal({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="font-body inline-flex items-center justify-center bg-[#e30613] px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#c90512] disabled:cursor-not-allowed disabled:opacity-70"
+                    className="font-body inline-flex items-center justify-center bg-[#e30613] px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#c90512] disabled:cursor-not-allowed disabled:opacity-70 sm:px-7 sm:py-3"
                   >
                     {isSubmitting ? "Sending..." : "Submit request"}
                   </button>
@@ -263,7 +263,7 @@ export default function BookTestRideModal({
               </form>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center py-10 text-center">
+            <div className="flex flex-col items-center justify-center py-6 text-center sm:py-10">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#e30613]/10">
                 <svg
                   className="h-6 w-6 text-[#e30613]"
@@ -275,15 +275,15 @@ export default function BookTestRideModal({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-display mt-5 text-[22px] font-black uppercase italic tracking-tight text-[#0b0b0c]">
+              <h3 className="font-display mt-4 text-[20px] font-black uppercase italic tracking-tight text-[#0b0b0c] sm:mt-5 sm:text-[22px]">
                 Request received
               </h3>
-              <p className="font-body mt-2 max-w-sm text-[14px] leading-relaxed text-[#6b6b70]">
+              <p className="font-body mt-2 max-w-sm text-[13px] leading-relaxed text-[#6b6b70] sm:text-[14px]">
                 Thanks for your interest. A member of our team will contact you shortly to confirm your test ride.
               </p>
               <button
                 onClick={onClose}
-                className="font-body mt-6 inline-flex items-center justify-center border border-[#0b0b0c]/15 px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0b0b0c] transition-colors hover:border-[#e30613] hover:text-[#e30613]"
+                className="font-body mt-5 inline-flex items-center justify-center border border-[#0b0b0c]/15 px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0b0b0c] transition-colors hover:border-[#e30613] hover:text-[#e30613] sm:mt-6 sm:px-7 sm:py-3"
               >
                 Close
               </button>

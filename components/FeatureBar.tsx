@@ -45,158 +45,121 @@ export default function FeatureBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="
-      w-full
-      bg-[#202020]
-      border
-      border-[#3a3a3a]
-    ">
-
-      <div className="
-        max-w-[1440px]
-        mx-auto
-        px-5
-        sm:px-8
-        py-8
-        flex
-        flex-col
-        xl:flex-row
-        items-center
-        justify-between
-        gap-8
-      ">
-
-
+    <section className="w-full border border-[#3a3a3a] bg-[#202020]">
+      <div
+        className="
+          mx-auto flex
+          w-full max-w-[1440px]
+          flex-col-reverse
+          items-center
+          justify-between
+          gap-8
+          px-5
+          py-8
+          sm:px-8
+          xl:flex-row
+        "
+      >
         {/* Buttons */}
-        <div className="
-          flex
-          flex-col
-          sm:flex-row
-          gap-4
-          w-full
-          xl:w-auto
-        ">
-
+        <div
+          className="
+            flex w-full
+            flex-col gap-4
+            sm:flex-row
+            xl:w-auto
+            xl:shrink-0
+          "
+        >
           <button
             className="
+              w-full
+              whitespace-nowrap
+              rounded-md
               bg-[#01e044]
-              hover:bg-[#01e044]
-              transition
-              text-white
-              font-medium
               px-7
               py-3
-              rounded-md
-              w-full
+              font-medium
+              text-white
+              transition
+              hover:bg-[#01e044]/90
               sm:w-auto
-              whitespace-nowrap
             "
             onClick={() => setOpen(true)}
           >
             Book a test ride
           </button>
 
-          <BookTestRideModal isOpen={open} onClose={() => setOpen(false)} />
-
           <button
             className="
+              w-full
+              whitespace-nowrap
+              rounded-md
               border
               border-white/40
-              hover:bg-white
-              hover:text-black
-              transition
-              text-white
-              font-medium
               px-8
               py-3
-              rounded-md
-              w-full
+              font-medium
+              text-white
+              transition
+              hover:bg-white
+              hover:text-black
               sm:w-auto
-              whitespace-nowrap
             "
-            onClick={() => window.location.href = '/dealer-network'}
+            onClick={() => (window.location.href = "/dealer-network")}
           >
             Find a dealer
           </button>
-
         </div>
 
-
-
         {/* Features */}
-        <div className="
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          xl:grid-cols-3
-          gap-8
-          w-full
-          xl:w-auto
-        ">
-
-
-          {features.map((item, index)=>{
-
+        <div
+          className="
+            grid
+            w-full
+            grid-cols-1
+            gap-6
+            sm:grid-cols-2
+            sm:gap-8
+            xl:w-auto
+            xl:grid-cols-3
+          "
+        >
+          {features.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div
-                key={index}
-                className="
-                  flex
-                  items-center
-                  gap-4
-                  min-w-0
-                "
-              >
-
+              <div key={index} className="flex min-w-0 items-center gap-4">
                 <Icon
                   size={42}
                   strokeWidth={1.8}
-                  className="
-                    text-[#01e044]
-                    shrink-0
-                  "
+                  className="shrink-0 text-[#01e044]"
                 />
 
-
-                <div className="
-                  leading-tight
-                ">
-
-                  <h3 className="
-                    text-white
-                    text-sm
-                    sm:text-base
-                    lg:text-lg
-                    font-bold
-                    whitespace-nowrap
-                  ">
+                <div className="min-w-0 leading-tight">
+                  <h3
+                    className="
+                      truncate
+                      text-sm
+                      font-bold
+                      text-white
+                      sm:text-base
+                      lg:text-lg
+                    "
+                  >
                     {item.title}
                   </h3>
 
-
-                  <p className="
-                    text-white
-                    text-sm
-                    lg:text-base
-                    opacity-90
-                  ">
+                  <p className="truncate text-sm text-white opacity-90 lg:text-base">
                     {item.desc}
                   </p>
-
                 </div>
-
               </div>
             );
-
           })}
-
-
         </div>
-
       </div>
 
+      <BookTestRideModal isOpen={open} onClose={() => setOpen(false)} />
     </section>
   );
 }
