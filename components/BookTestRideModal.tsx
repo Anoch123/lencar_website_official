@@ -255,7 +255,7 @@ export default function BookTestRideModal({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="font-body inline-flex items-center justify-center bg-[#e30613] px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#c90512] disabled:cursor-not-allowed disabled:opacity-70 sm:px-7 sm:py-3"
+                    className="font-body inline-flex rounded items-center justify-center bg-[#e30613] px-6 py-2.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#c90512] disabled:cursor-not-allowed disabled:opacity-70 sm:px-7 sm:py-3"
                   >
                     {isSubmitting ? "Sending..." : "Submit request"}
                   </button>

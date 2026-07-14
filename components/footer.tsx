@@ -26,9 +26,9 @@ const LINK_GROUPS: LinkGroup[] = [
   {
     heading: "Our Products",
     links: [
-      { label: "eRc 80 - eScooter", href: "#" },
-      { label: "eRc 80+ - eScooter", href: "#" },
-      { label: "Zivi", href: "#" },
+      { label: "eRc 80 - eScooter", href: "/lencar-bikes/erc-80" },
+      { label: "eRc 80+ - eScooter", href: "/lencar-bikes/erc-80-plus" },
+      { label: "Zivi", href: "/lencar-bikes/zivi" },
     ],
   },
 ];
@@ -191,11 +191,11 @@ export default function Footer() {
             reserved.
           </p>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            {["Privacy policy", "Terms of use"].map(
+            {["Privacy policy"].map(
               (item) => (
                 <a
                   key={item}
-                  href="#"
+                  href={"/privacy-policy"}
                   className="font-body text-[13px] text-[#6b6b70] transition-colors hover:text-[#f5f4f1]"
                 >
                   {item}
