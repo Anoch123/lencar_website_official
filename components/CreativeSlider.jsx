@@ -22,15 +22,15 @@ const slides = [
       "Silent on the street, silent on emissions. The ERC.80 clears a full shift of city roads on a single charge, with zero tailpipe output and cabin noise below a passing conversation.",
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/erc-80" },
   },
-  {
-    background: "/images/img1.png",
-    video: "",
-    dark: true,
-    heading: "LENCAR ZIVI",
-    description:
-      "Silent on the street, silent on emissions. The ERC.80 clears a full shift of city roads on a single charge, with zero tailpipe output and cabin noise below a passing conversation.",
-    ctaPrimary: { label: "Learn More", href: "/lencar-bikes/zivi" },
-  },
+  // {
+  //   background: "/images/img1.png",
+  //   video: "",
+  //   dark: true,
+  //   heading: "LENCAR ZIVI",
+  //   description:
+  //     "Silent on the street, silent on emissions. The ERC.80 clears a full shift of city roads on a single charge, with zero tailpipe output and cabin noise below a passing conversation.",
+  //   ctaPrimary: { label: "Learn More", href: "/lencar-bikes/zivi" },
+  // },
 ];
 
 export default function CreativeSlider() {
