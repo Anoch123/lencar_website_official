@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.creative-showcase--slider{
+    --asphalt:#14171a;              /* deep graphite, wet-road dark */
+    --asphalt-soft:#1d2226;
+    --curb:#f6f4ee;                 /* chalk / lane-marking white */
+    --ink:#f6f4ee;
+    --ink-dark:#14171a;
+    --muted:rgba(246,244,238,0.58);
+    --muted-dark:rgba(20,23,26,0.58);
+
+    --signal:#0F4C81;               /* hazard yellow — the one loud accent */
+    --signal-ink:#ffffff;
+    --clean:#34d399;                /* zero-emission green, used only on the badge */
+    --hairline:rgba(246,244,238,0.14);
+    --hairline-dark:rgba(20,23,26,0.16);
+
+    position:relative;
+    background:var(--asphalt);
+    font-family:'Inter', sans-serif;
+}
+
+/* ---------- top bar ---------- */
+.slider-frame{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:32px 60px;
+    pointer-events:none;
+}
+
+.brand-block{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+.brand-mark{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--ink);
+}
+
+.brand-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+/* charge-indicator: duty-cycle readout, doubles as autoplay progress */
+.charge-indicator{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.charge-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+.charge-track{
+    width:150px;
+    height:3px;
+    background:var(--hairline);
+    overflow:hidden;
+}
+
+.charge-bar{
+    display:block;
+    height:100%;
+    width:0%;
+    background:var(--signal);
+    animation:charge 6.5s linear forwards;
+}
+
+@keyframes charge{
+    from{ width:0%; }
+    to{ width:100%; }
+}
+
+/* ---------- slides ---------- */
+.creative-showcase--slider .swiper-slide{
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    min-height:100vh;
+}
+
+.creative-showcase--slider .swiper-container-h{
+    width:100%;
+    height:100vh;
+}
+
+.slide-bg{
+    display:flex;
+    align-items:center;
+    position:absolute;
+    inset:0;
+    transform-style:preserve-3d;
+    overflow:hidden;
+    background-size:cover;
+    background-position:70% center;
+    background-repeat:no-repeat;
+}
+
+.slide-video-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* scrim so copy stays legible over photo/video, plus a faint texture nod to asphalt grain */
+/* .slide-bg:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(100deg, rgba(20,23,26,.94) 0%, rgba(20,23,26,.82) 32%, rgba(20,23,26,.4) 58%, rgba(20,23,26,.72) 100%);
+} */
+
+.overlay-light.slide-bg:after,
+.overlay-light .slide-bg:after{
+    background:linear-gradient(100deg, rgba(246,244,238,.94) 0%, rgba(246,244,238,.84) 32%, rgba(246,244,238,.5) 58%, rgba(246,244,238,.78) 100%);
+}
+
+.overlay-dark:before,
+.overlay-light:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    /* background-image:radial-gradient(currentColor 1px, transparent 1px); */
+    background-size:26px 26px;
+    color:var(--hairline);
+    opacity:.3;
+}
+
+.overlay-light:before{ color:var(--hairline-dark); }
+
+.slide-container{
+    max-width:1320px;
+    width:100%;
+    margin:auto;
+    padding:0 60px;
+    position:relative;
+    z-index:5;
+}
+
+.slide-row{
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
+    gap:40px;
+}
+
+.slider-content{
+    width:100%;
+    max-width:560px;
+}
+
+/* zero-emission badge — the only place the secondary accent (clean green) appears */
+.badge-clean{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--clean);
+    border:1px solid rgba(52,211,153,.35);
+    background:rgba(52,211,153,.08);
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:22px;
+}
+
+.badge-clean-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--clean);
+    box-shadow:0 0 0 3px rgba(52,211,153,.18);
+}
+
+/* eyebrow */
+.slide-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+.eyebrow-text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+.overlay-light .eyebrow-text{ color:var(--muted-dark); }
+
+/* heading — condensed industrial display face, underline stands in for signage */
+.slide-heading{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-size:88px;
+    line-height:.92;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin:0 0 18px;
+    letter-spacing:-.01em;
+}
+
+.overlay-light .slide-heading{ color:var(--ink-dark); }
+
+.heading-sweep{
+    display:inline-block;
+    position:relative;
+    padding-bottom:6px;
+}
+
+.heading-sweep:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    height:6px;
+    width:100%;
+    background:var(--signal);
+}
+
+/* description */
+.slide-description{
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    font-weight:400;
+    color:var(--muted);
+    max-width:460px;
+    margin:0 0 36px;
+}
+
+.overlay-light .slide-description{ color:var(--muted-dark); }
+
+/* buttons */
+.slide-buttons{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.slide-btn{
+    height:56px;
+    padding:0 32px;
+    border:none;
+    border-radius:4px;
+    background:var(--signal);
+    color:var(--signal-ink);
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.slide-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px rgba(255,198,51,.22);
+}
+
+.slide-btn-ghost{
+    height:56px;
+    padding:0 26px;
+    border:1px solid var(--hairline);
+    border-radius:4px;
+    background:transparent;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    font-weight:500;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:.3s ease;
+}
+
+.overlay-light .slide-btn-ghost{ color:var(--ink-dark); border-color:var(--hairline-dark); }
+
+.slide-btn-ghost:hover{
+    border-color:var(--signal);
+    background:rgba(255,198,51,.08);
+}
+
+.slide-btn-ghost svg{ transition:transform .3s ease; }
+.slide-btn-ghost:hover svg{ transform:translateY(2px); }
+
+/* ---------- vehicle visual (right column) ---------- */
+.slide-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+}
+
+.visual-glow{
+    position:absolute;
+    width:62%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,198,51,.14) 0%, transparent 70%);
+    filter:blur(6px);
+    z-index:0;
+}
+
+.visual-ground{
+    position:absolute;
+    bottom:12%;
+    width:50%;
+    height:24px;
+    border-radius:50%;
+    background:radial-gradient(ellipse, rgba(0,0,0,.4) 0%, transparent 72%);
+    z-index:1;
+}
+
+/* signature element: two counter-rotating dashed rings, standing in for the sweeper's
+   own rotary brushes — the one bold flourish on the page, everything else stays quiet */
+.brush-disk{
+    position:absolute;
+    z-index:0;
+    color:var(--signal);
+    opacity:.55;
+}
+
+.brush-disk--outer{
+    width:78%;
+    aspect-ratio:1;
+    animation:spin-cw 22s linear infinite;
+}
+
+.brush-disk--inner{
+    width:52%;
+    aspect-ratio:1;
+    opacity:.4;
+    animation:spin-ccw 15s linear infinite;
+}
+
+@keyframes spin-cw{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+@keyframes spin-ccw{ from{ transform:rotate(0deg); } to{ transform:rotate(-360deg); } }
+
+.vehicle-photo{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:560px;
+    height:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));
+}
+
+/* ---------- performance readout ---------- */
+.spec-strip{
+    margin-top:44px;
+    padding-top:22px;
+    border-top:1px solid var(--hairline);
+    max-width:480px;
+}
+
+.overlay-light .spec-strip{ border-top-color:var(--hairline-dark); }
+
+.spec-kicker{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:16px;
+}
+
+.overlay-light .spec-kicker{ color:var(--muted-dark); }
+
+.spec-row{
+    display:flex;
+    gap:0;
+}
+
+.spec-item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    padding-right:26px;
+    margin-right:26px;
+    border-right:1px solid var(--hairline);
+}
+
+.overlay-light .spec-item{ border-right-color:var(--hairline-dark); }
+
+.spec-item:last-child{
+    border-right:none;
+    margin-right:0;
+    padding-right:0;
+}
+
+.spec-value{
+    font-family:'JetBrains Mono', monospace;
+    font-size:22px;
+    font-weight:500;
+    color:var(--ink);
+    display:flex;
+    align-items:baseline;
+    gap:3px;
+}
+
+.overlay-light .spec-value{ color:var(--ink-dark); }
+
+.spec-unit{
+    font-size:11px;
+    color:var(--signal);
+}
+
+.spec-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+.overlay-light .spec-label{ color:var(--muted-dark); }
+
+/* ---------- footer bar ---------- */
+.slider-footer{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px 36px;
+    pointer-events:none;
+}
+
+.slider-footer > *{ pointer-events:auto; }
+
+.slider-counter{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink);
+}
+
+.counter-divider{
+    width:16px;
+    height:1px;
+    background:var(--hairline);
+}
+
+.counter-total{ color:var(--muted); }
+
+/* pagination */
+.slider-pagination{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.slider-pagination .swiper-pagination-bullet{
+    width:24px;
+    height:2px;
+    border-radius:0;
+    background:var(--hairline);
+    opacity:1;
+    margin:0;
+    transition:background .3s ease, width .3s ease;
+}
+
+.slider-pagination .swiper-pagination-bullet-active{
+    background:var(--signal);
+    width:36px;
+}
+
+/* nav */
+.slider-nav{
+    display:flex;
+    gap:10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    position:static;
+    width:44px;
+    height:44px;
+    margin:0;
+    border-radius:50%;
+    border:1px solid var(--hairline);
+    background:transparent;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:border-color .3s ease, background .3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+    font-size:14px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    border-color:var(--signal);
+    background:rgba(255,198,51,.12);
+}
+
+.swiper-button-disabled{
+    opacity:.35;
+    cursor:default;
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:1200px){
+    .slide-heading{ font-size:72px; }
+    .vehicle-photo{ max-width:460px; }
+}
+
+@media(max-width:991px){
+    .slide-heading{ font-size:60px; }
+    .slider-frame,
+    .slider-footer{ padding-left:32px; padding-right:32px; }
+    .charge-track{ width:100px; }
+    .spec-strip{ max-width:100%; }
+    .slide-bg{ background-position:center; }
+
+    .slide-btn,
+    .slide-btn-ghost{ height:48px; padding:0 24px; }
+
+    .slide-row{
+        grid-template-columns:1fr;
+        gap:16px;
+        padding-top:120px;
+    }
+    .slider-content{ max-width:100%; }
+    .slide-visual{ height:auto; padding-top:8px; padding-bottom:16px; }
+    .vehicle-photo{ max-width:400px; }
+    .visual-glow{ width:80%; }
+}
+
+@media(max-width:767px){
+    .slide-heading{ font-size:38px; }
+    .slide-container{ padding:0 24px; }
+    .slider-frame{ padding:24px; }
+    .brand-tag{ display:none; }
+    .charge-label{ display:none; }
+    .charge-track{ width:56px; }
+    .slider-footer{ padding:0 24px 24px; flex-wrap:wrap; gap:16px; }
+    .slide-description{ font-size:14px; }
+    .spec-row{ flex-wrap:wrap; gap:16px 0; }
+    .spec-item{ width:50%; padding-right:16px; margin-right:0; border-right:none; }
+    .swiper-button-next,
+    .swiper-button-prev{ width:38px; height:38px; }
+    .slide-bg{ background-position:center; }
+    .slide-row{ padding-top:100px; }
+    .vehicle-photo{ max-width:300px; }
+}
+
+@media(prefers-reduced-motion: reduce){
+    .slide-btn,
+    .slide-btn-ghost,
+    .slide-btn-ghost svg,
+    .slider-pagination .swiper-pagination-bullet,
+    .swiper-button-next,
+    .swiper-button-prev,
+    .brush-disk--outer,
+    .brush-disk--inner{
+        transition:none;
+        animation:none;
+    }
+    .charge-bar{ animation:none; width:100%; }
+}
