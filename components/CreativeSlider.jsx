@@ -14,7 +14,7 @@ const AUTOPLAY_DELAY = 6500;
 
 const slides = [
   {
-    background: "/images/img1.png",
+    background: "/images/img2.png",
     video: "",
     dark: true,
     heading: "LENCAR ERC.80",
