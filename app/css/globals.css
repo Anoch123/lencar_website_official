@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-background-color: #ffffff;
-overflow-x:hidden;
-}
-
-
-::-webkit-scrollbar{
-width:8px;
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
 }
 
 
-::-webkit-scrollbar-thumb{
-background:#5cff00;
-border-radius:20px;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
 
-.section-title{
+::-webkit-scrollbar-thumb {
+    background: #5cff00;
+    border-radius: 20px;
+}
 
-font-family:var(--font-oswald);
 
-font-size:clamp(2.5rem,5vw,5rem);
+.section-title {
 
-font-weight:700;
+    font-family: var(--font-oswald);
 
-line-height:1;
+    font-size: clamp(2.5rem, 5vw, 5rem);
 
-text-transform:uppercase;
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-transform: uppercase;
 
 }
