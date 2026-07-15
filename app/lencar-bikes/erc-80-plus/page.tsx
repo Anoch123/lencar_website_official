@@ -81,7 +81,7 @@ export default function LencarERC80Plus() {
                 Book a test ride
               </button>
               <a
-                href="/lencar-bikes"
+                href="/my-lencar"
                 className="font-body inline-flex items-center justify-center border border-[#0b0b0c] px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0b0b0c] transition-colors hover:border-[#e30613] hover:text-[#e30613]"
               >
                 Back to lineup
