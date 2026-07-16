@@ -4,16 +4,16 @@ import AllPageHero from "@/components/allPageHero"
 import FaqAccordion from "@/components/Faqaccordion";
 
 const BIKES = [
-  {
-    name: "eRc 80",
-    slug: "erc-80",
-    tagline: "The everyday city commuter.",
-    image: "/images/bikes/erc-80.jpg",
-    specs: [
-      { label: "Range", value: "70 km" },
-      { label: "Top speed", value: "60 km/h" },
-    ],
-  },
+  // {
+  //   name: "eRc 80",
+  //   slug: "erc-80",
+  //   tagline: "The everyday city commuter.",
+  //   image: "/images/bikes/erc-80.jpg",
+  //   specs: [
+  //     { label: "Range", value: "70 km" },
+  //     { label: "Top speed", value: "60 km/h" },
+  //   ],
+  // },
   {
     name: "eRc 80+",
     slug: "erc-80-plus",

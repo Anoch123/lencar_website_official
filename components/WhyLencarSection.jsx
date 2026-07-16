@@ -1,33 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import { Wrench, ShieldCheck, Award, ArrowUpRight } from "lucide-react";
+import { Wrench, ShieldCheck, Award, Motorbike, brush, Brush } from "lucide-react";
 
 const FEATURES = [
   {
     icon: Wrench,
-    title: "Service network",
+    title: "Technology",
     description:
-      "1,000+ authorized workshops and stores worldwide, for repairs, inspections and genuine parts.",
+      "Smart battery swapping technology enables riders to replace batteries within minutes, eliminating long charging times.",
     cta: { label: "Find a store near Colombo", href: "#store-locator" },
   },
   {
     icon: ShieldCheck,
     title: "Warranty",
     description:
-      "2 years on the vehicle, 2 years on the battery. Valid across the EU — no fine print.",
+      "A 5-year warranty covers the powertrain, ensuring reliability and peace of mind.",
+  },
+  {
+    icon: Motorbike,
+    title: "Range",
+    description:
+      "Battery swapping technology provides unlimited range for uninterrupted travel.",
+  },
+  {
+    icon: Brush,
+    title: "Service",
+    description:
+      "Lifetime battery service eliminates concerns about battery maintenance and replacement.",
   },
   {
     icon: Award,
-    title: "Award-winning",
+    title: "After-Sales Service",
     description:
-      "Test winner and recommended pick across the industry's most demanding independent reviews.",
-  },
-  {
-    icon: Award,
-    title: "Award-winning",
-    description:
-      "Test winner and recommended pick across the industry's most demanding independent reviews.",
+      "A nationwide dealer network and dedicated technical support ensure reliable customer service.",
   },
 ];
 
@@ -71,7 +77,7 @@ export default function WhyLencarSection() {
                 just a scooter
               </h2>
               <p className="font-body mt-4 max-w-sm text-[15px] leading-relaxed text-[#c7c7cc]">
-                Three of many reasons why LENCAR riders stay LENCAR riders.
+                At Lencar, we believe transportation should be affordable, environmentally friendly, and hassle-free. Our electric scooters are designed for Sri Lankan roads while delivering outstanding performance and convenience.
               </p>
             </div>
           </div>
