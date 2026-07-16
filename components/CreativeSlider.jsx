@@ -18,7 +18,7 @@ const slides = [
     video: "",
     dark: true,
     heading: "LENCAR ERC.80",
-    description: "Silent on the street, silent on emissions. The ERC.80 clears a full shift of city roads on a single charge, with zero tailpipe output and cabin noise below a passing conversation.",
+    description: "The Lencar eRC 80 is a smart electric scooter designed for daily commuting and city travel.",
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/erc-80" },
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     video: "",
     dark: true,
     heading: "LENCAR ZIVI",
-    description: "Silent on the street, silent on emissions. The ERC.80 clears a full shift of city roads on a single charge, with zero tailpipe output and cabin noise below a passing conversation.",
+    description: "The Lencar Zivi is a premium electric scooter built for riders who need greater efficiency and longer-distance travel.",
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/zivi" },
   },
 ];

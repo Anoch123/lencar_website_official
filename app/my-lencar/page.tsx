@@ -10,8 +10,8 @@ const BIKES = [
     tagline: "The everyday city commuter.",
     image: "/images/bikes/erc-80.jpg",
     specs: [
-      { label: "Range", value: "80 km" },
-      { label: "Top speed", value: "45 km/h" },
+      { label: "Range", value: "70 km" },
+      { label: "Top speed", value: "60 km/h" },
     ],
   },
   {
@@ -20,8 +20,8 @@ const BIKES = [
     tagline: "More range, more power, same footprint.",
     image: "/images/bikes/erc-80-plus.jpg",
     specs: [
-      { label: "Range", value: "100 km" },
-      { label: "Top speed", value: "50 km/h" },
+      { label: "Range", value: "70 km" },
+      { label: "Top speed", value: "60 km/h" },
     ],
   },
   {
@@ -30,8 +30,8 @@ const BIKES = [
     tagline: "Light, agile, built for tight city streets.",
     image: "/images/bikes/zivi.jpg",
     specs: [
-      { label: "Range", value: "60 km" },
-      { label: "Top speed", value: "40 km/h" },
+      { label: "Range", value: "100+ km" },
+      { label: "Top speed", value: "65 km/h" },
     ],
   },
 ];

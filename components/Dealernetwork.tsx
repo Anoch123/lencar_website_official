@@ -13,76 +13,76 @@ type Dealer = {
 
 const DEALERS: Dealer[] = [
   {
-    name: "Lencar Colombo",
+    name: "Lencar Agalawatta",
     region: "Western",
-    address: "29, Grenier Road, Colombo – 08",
-    phone: "+94 713 391 391",
+    address: "226/01, Yatiyana, Agalawatta",
+    phone: "+94 757 979 938",
     hours: "Mon–Sat, 9:00 AM – 6:00 PM",
-    mapsQuery: "29 Grenier Road Colombo 08 Sri Lanka",
+    mapsQuery: "226/01, Yatiyana, Agalawatta, Sri Lanka",
   },
   {
-    name: "Lencar Negombo",
+    name: "Lencar Soysapura",
     region: "Western",
-    address: "Colombo Road, Negombo",
-    phone: "+94 31 222 4501",
+    address: "164, Soysapura, Moratuwa",
+    phone: "+94 727 201 201",
     hours: "Mon–Sat, 9:00 AM – 6:00 PM",
-    mapsQuery: "Colombo Road Negombo Sri Lanka",
+    mapsQuery: "164, Soysapura, Moratuwa, Sri Lanka",
   },
   {
-    name: "Lencar Kandy",
-    region: "Central",
-    address: "William Gopallawa Mawatha, Kandy",
-    phone: "+94 81 222 3390",
-    hours: "Mon–Sat, 9:00 AM – 5:30 PM",
-    mapsQuery: "William Gopallawa Mawatha Kandy Sri Lanka",
+    name: "Lencar Miriswatta",
+    region: "Western",
+    address: "84/C, Miriwatta, Mudungoda, Gampaha",
+    phone: "+94 777 774 521",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "84/C, Miriwatta, Mudungoda, Gampaha, Sri Lanka",
+  },
+  {
+    name: "Lencar Dharga Town",
+    region: "Western",
+    address: "87/02, Main Street, Dharga Town",
+    phone: "+94 788 111 198",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "87/02, Main Street, Dharga Town, Sri Lanka",
+  },
+  {
+    name: "Lencar Padukka",
+    region: "Western",
+    address: "77/7/1, Polgahahota, Wewalketiya, Bope, Padukka",
+    phone: "+94 776 877 267",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "77/7/1, Polgahahota, Wewalketiya, Bope, Padukka, Sri Lanka",
+  },
+  {
+    name: "Lencar Panadura",
+    region: "Western",
+    address: "43A, Janapriya Mawatha, Awariyawatta, Alubomulla, Panadura",
+    phone: "+94 712 567 289",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "43A, Janapriya Mawatha, Awariyawatta, Alubomulla, Panadura, Sri Lanka",
+  },
+  {
+    name: "Lencar Kuliyapitiya",
+    region: "North Western",
+    address: "190, Uthurawala, Welipannagahamulla, Kuliyapitiya",
+    phone: "+94 741 577 271",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "190, Uthurawala, Welipannagahamulla, Kuliyapitiya, Sri Lanka",
+  },
+  {
+    name: "Lencar Kiribathgoda",
+    region: "Western",
+    address: "89/16, Jinadasa Nandasena Mawatha, Kiribathgoda",
+    phone: "+94 702 393 993",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "89/16, Jinadasa Nandasena Mawatha, Kiribathgoda, Sri Lanka",
   },
   {
     name: "Lencar Kurunegala",
     region: "North Western",
-    address: "Kandy Road, Kurunegala",
-    phone: "+94 37 222 6710",
-    hours: "Mon–Sat, 9:00 AM – 5:30 PM",
-    mapsQuery: "Kandy Road Kurunegala Sri Lanka",
-  },
-  {
-    name: "Lencar Galle",
-    region: "Southern",
-    address: "Matara Road, Galle",
-    phone: "+94 91 222 8815",
-    hours: "Mon–Sat, 9:00 AM – 5:30 PM",
-    mapsQuery: "Matara Road Galle Sri Lanka",
-  },
-  {
-    name: "Lencar Matara",
-    region: "Southern",
-    address: "Anagarika Dharmapala Mawatha, Matara",
-    phone: "+94 41 222 4470",
-    hours: "Mon–Sat, 9:00 AM – 5:30 PM",
-    mapsQuery: "Anagarika Dharmapala Mawatha Matara Sri Lanka",
-  },
-  {
-    name: "Lencar Anuradhapura",
-    region: "North Central",
-    address: "Maithripala Senanayake Mawatha, Anuradhapura",
-    phone: "+94 25 222 6640",
-    hours: "Mon–Sat, 9:00 AM – 5:00 PM",
-    mapsQuery: "Maithripala Senanayake Mawatha Anuradhapura Sri Lanka",
-  },
-  {
-    name: "Lencar Batticaloa",
-    region: "Eastern",
-    address: "Trinco Road, Batticaloa",
-    phone: "+94 65 222 3380",
-    hours: "Mon–Sat, 9:00 AM – 5:00 PM",
-    mapsQuery: "Trinco Road Batticaloa Sri Lanka",
-  },
-  {
-    name: "Lencar Jaffna",
-    region: "Northern",
-    address: "Hospital Road, Jaffna",
-    phone: "+94 21 222 5510",
-    hours: "Mon–Sat, 9:00 AM – 5:00 PM",
-    mapsQuery: "Hospital Road Jaffna Sri Lanka",
+    address: "Negombo Road, Kurunegala",
+    phone: "+94 777 189 529",
+    hours: "Mon–Sat, 9:00 AM – 6:00 PM",
+    mapsQuery: "Negombo Road, Kurunegala, Sri Lanka",
   },
 ];
 
@@ -107,11 +107,10 @@ export default function DealerNetwork() {
               key={region}
               type="button"
               onClick={() => setActiveRegion(region)}
-              className={`font-body px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.04em] transition-colors ${
-                isActive
+              className={`font-body px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.04em] transition-colors ${isActive
                   ? "bg-[#e30613] text-white"
                   : "border border-[#e5e5e5] text-[#4a4a4d] hover:border-[#0b0b0c] hover:text-[#0b0b0c]"
-              }`}
+                }`}
             >
               {region}
             </button>

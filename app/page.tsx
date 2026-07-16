@@ -14,7 +14,7 @@ export default function Home() {
       <WhyLencarSection />
       <ImpactStats distanceKm={2094513.9886} />
       <AboutBSS />
-      <HomeSwapping />
+      {/* <HomeSwapping /> */}
       <Footer />
     </main>
   );

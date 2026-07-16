@@ -6,10 +6,10 @@ import Footer from "@/components/footer";
 import BookTestRideModal from "@/components/BookTestRideModal";
 
 const SPECS = [
-  { label: "Range", value: "60 km" },
-  { label: "Top speed", value: "40 km/h" },
-  { label: "Charging time", value: "3.5 hrs" },
-  { label: "Payload", value: "120 kg" },
+  { label: "Range", value: "100+ km" },
+  { label: "Top speed", value: "65 km/h" },
+  { label: "Motor Power", value: "1.5 kwh" },
+  { label: "Battery", value: "72 - 30 AH Lithium Iron Phosphate" },
 ];
 
 const HIGHLIGHTS = [

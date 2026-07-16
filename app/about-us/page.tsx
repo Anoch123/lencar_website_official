@@ -109,9 +109,20 @@ export default function AboutUsPage() {
               </div>
             </div>
           </div>
+          <div className="flex flex-col justify-center gap-4 mt-15">
+            <h3 className="font-display text-[13px] font-bold uppercase tracking-[0.14em] mb-0 text-[#e30613]">
+              Innovation for Sri Lanka
+            </h3>
+            <p className="font-body mt-0 text-[17px] leading-relaxed text-[#3a3a3d]">
+              As the team continues to push the boundaries of e-mobility, the result is a breakthrough e-mobility innovation for Sri Lanka.
+              Our core business involves the development of electric motors and other powertrain-related components for electric vehicles. This is brought about by our strong commitment to Research and Development and the constant efforts to develop, implement and innovate solutions. This allows us to stay ahead of the curve in terms of global progress in this evolving industry. Knowledge gathering, product testing and process implementation play a vital role in our research & development process. Our R & D team consists of highly skilled and qualified engineers and scientists with a passion to make a positive change to the environment.
+              Our objective is to develop futureproof e-mobility solutions so that Sri Lankan roads will have quiet, eco-friendly, and efficient vehicles for a greener and cleaner future.
+            </p>
+          </div>
         </section>
 
         {/* <NewsletterSignup /> */}
+
       </main>
 
       <Footer />

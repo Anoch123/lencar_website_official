@@ -3,8 +3,8 @@ import DealerNetwork from "@/components/Dealernetwork";
 import AllPageHero from "@/components/allPageHero";
 
 const STATS = [
-  { value: "9+", label: "Showrooms & service centers" },
-  { value: "8", label: "Provinces covered" },
+  { value: "9", label: "Showrooms & service centers" },
+  { value: "2", label: "Provinces covered" },
   { value: "6", label: "Days a week open" },
 ];
 
