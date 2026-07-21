@@ -147,7 +147,7 @@ export default function BookTestRideModal({
                     value={formData.fullName}
                     onChange={(e) => updateField("fullName", e.target.value)}
                     placeholder="Your name"
-                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
                   />
                 </div>
 
@@ -162,7 +162,7 @@ export default function BookTestRideModal({
                       value={formData.email}
                       onChange={(e) => updateField("email", e.target.value)}
                       placeholder="you@example.com"
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
                     />
                   </div>
 
@@ -176,7 +176,7 @@ export default function BookTestRideModal({
                       value={formData.phone}
                       onChange={(e) => updateField("phone", e.target.value)}
                       placeholder="+94 77 123 4567"
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
                     />
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default function BookTestRideModal({
                     <select
                       value={formData.bike}
                       onChange={(e) => updateField("bike", e.target.value)}
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
                     >
                       <option value="">Select a bike</option>
                       {bikes.map((bike) => (
@@ -208,6 +208,7 @@ export default function BookTestRideModal({
                       type="date"
                       value={formData.date}
                       onChange={(e) => updateField("date", e.target.value)}
+                      required
                       className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                     />
                   </div>
@@ -221,6 +222,7 @@ export default function BookTestRideModal({
                     type="time"
                     value={formData.time}
                     onChange={(e) => updateField("time", e.target.value)}
+                    required
                     className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
                   />
                 </div>
@@ -232,6 +234,7 @@ export default function BookTestRideModal({
                   <textarea
                     value={formData.message}
                     onChange={(e) => updateField("message", e.target.value)}
+                    required
                     placeholder="Any specific requests or questions?"
                     rows={2}
                     className="mt-1 w-full resize-none rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] placeholder:text-[#0b0b0c]/30 outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-3"
