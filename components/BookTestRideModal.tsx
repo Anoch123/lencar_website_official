@@ -329,7 +329,6 @@ export default function BookTestRideModal({
                   <input
                     type="time"
                     min={minimumTimeForToday}
-                    step="3600"
                     value={formData.time}
                     onChange={(e) => handleTimeChange(e.target.value)}
                     onBlur={handleTimeBlur}
