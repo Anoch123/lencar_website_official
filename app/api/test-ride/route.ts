@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getPhoneNumberForSubmission, validateTestRideForm } from "@/lib/validation";
 
 type TestRidePayload = {
   fullName: string;
   email: string;
   phone: string;
+  countryCode?: string;
   bike?: string;
   date?: string;
   time?: string;
@@ -198,7 +200,27 @@ function buildTeamHtml(payload: TestRidePayload) {
 export async function POST(request: Request) {
   try {
     const body: TestRidePayload = await request.json();
-    const { fullName, email, phone, bike, date, time, message } = body;
+    const { fullName, email, phone, countryCode, bike, date, time, message } = body;
+
+    const validationErrors = validateTestRideForm({
+      fullName: fullName || "",
+      email: email || "",
+      phone: phone || "",
+      countryCode: countryCode || "+94",
+      bike: bike || "",
+      date: date || "",
+      time: time || "",
+      message: message || "",
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      return NextResponse.json(
+        { message: "Please complete all required fields correctly before submitting." },
+        { status: 400 }
+      );
+    }
+
+    const normalizedPhone = getPhoneNumberForSubmission(countryCode || "+94", phone || "");
 
     const smtpHost = process.env.SMTP_HOST;
     const smtpPort = Number(process.env.SMTP_PORT || 587);
@@ -227,8 +249,24 @@ export async function POST(request: Request) {
       },
     });
 
-    const customerHtml = buildCustomerHtml({ fullName, email, phone, bike, date, time, message });
-    const teamHtml = buildTeamHtml({ fullName, email, phone, bike, date, time, message });
+    const customerHtml = buildCustomerHtml({
+      fullName,
+      email,
+      phone: normalizedPhone,
+      bike,
+      date,
+      time,
+      message,
+    });
+    const teamHtml = buildTeamHtml({
+      fullName,
+      email,
+      phone: normalizedPhone,
+      bike,
+      date,
+      time,
+      message,
+    });
 
     await transporter.sendMail({
       from: fromAddress,

@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import {
+  COUNTRY_CODES,
+  getMinimumAllowedTimeForToday,
+  getPhoneNumberForSubmission,
+  getTodayDateString,
+  validateTestRideForm,
+} from "@/lib/validation";
 
 type BikeOption = {
   name: string;
@@ -16,7 +23,6 @@ type BookTestRideModalProps = {
 };
 
 const DEFAULT_BIKES: BikeOption[] = [
-  { name: "eRc 80", slug: "erc-80" },
   { name: "eRc 80+", slug: "erc-80-plus" },
   { name: "Zivi", slug: "zivi" },
 ];
@@ -30,10 +36,12 @@ export default function BookTestRideModal({
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
+    countryCode: "+94",
     bike: bikeName || "",
     date: "",
     time: "",
@@ -42,18 +50,24 @@ export default function BookTestRideModal({
 
   useEffect(() => {
     if (!isOpen) {
-      setSubmitted(false);
-      setIsSubmitting(false);
-      setSubmitError(null);
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        bike: bikeName || "",
-        date: "",
-        time: "",
-        message: "",
-      });
+      const timeoutId = window.setTimeout(() => {
+        setSubmitted(false);
+        setIsSubmitting(false);
+        setSubmitError(null);
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          countryCode: "+94",
+          bike: bikeName || "",
+          date: "",
+          time: "",
+          message: "",
+        });
+        setValidationErrors({});
+      }, 0);
+
+      return () => window.clearTimeout(timeoutId);
     }
   }, [isOpen, bikeName]);
 
@@ -72,14 +86,35 @@ export default function BookTestRideModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitError(null);
+
+    const errors = validateTestRideForm({
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      countryCode: formData.countryCode,
+      bike: formData.bike,
+      date: formData.date,
+      time: formData.time,
+      message: formData.message,
+    });
+
+    setValidationErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/test-ride", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          phone: getPhoneNumberForSubmission(formData.countryCode, formData.phone),
+        }),
       });
 
       const data = await response.json();
@@ -102,7 +137,39 @@ export default function BookTestRideModal({
 
   const updateField = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    setValidationErrors((prev) => ({ ...prev, [field]: "" }));
   };
+
+  const handleDateChange = (value: string) => {
+    const minimumTime = getMinimumAllowedTimeForToday();
+    const today = getTodayDateString();
+
+    setFormData((prev) => ({
+      ...prev,
+      date: value,
+      time: value === today && prev.time && prev.time < minimumTime ? "" : prev.time,
+    }));
+    setValidationErrors((prev) => ({ ...prev, date: "", time: "" }));
+  };
+
+  const handleTimeChange = (value: string) => {
+    const today = getTodayDateString();
+    const minimumTime = getMinimumAllowedTimeForToday();
+    const nextValue = formData.date === today && value < minimumTime ? minimumTime : value;
+    updateField("time", nextValue);
+  };
+
+  const handleTimeBlur = () => {
+    const today = getTodayDateString();
+    const minimumTime = getMinimumAllowedTimeForToday();
+
+    if (formData.date === today && formData.time && formData.time < minimumTime) {
+      updateField("time", minimumTime);
+    }
+  };
+
+  const todayDate = getTodayDateString();
+  const minimumTimeForToday = formData.date === todayDate ? getMinimumAllowedTimeForToday() : undefined;
 
   if (!isOpen) return null;
 
@@ -143,12 +210,21 @@ export default function BookTestRideModal({
                     Full name <span className="text-[#e30613]">*</span>
                   </label>
                   <input
-                    required
                     value={formData.fullName}
-                    onChange={(e) => updateField("fullName", e.target.value)}
+                    type="text"
+                    inputMode="text"
+                    autoComplete="name"
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+                      updateField("fullName", value);
+                    }}
                     placeholder="Your name"
-                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
+                    className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 ${validationErrors.fullName ? "border-[#e30613]" : "border-[#0b0b0c]/15"
+                      }`}
                   />
+                  {validationErrors.fullName ? (
+                    <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.fullName}</p>
+                  ) : null}
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
@@ -157,39 +233,65 @@ export default function BookTestRideModal({
                       Email <span className="text-[#e30613]">*</span>
                     </label>
                     <input
-                      required
                       type="email"
                       value={formData.email}
                       onChange={(e) => updateField("email", e.target.value)}
                       placeholder="you@example.com"
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
+                      className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 ${validationErrors.email ? "border-[#e30613]" : "border-[#0b0b0c]/15"}`}
                     />
+                    {validationErrors.email ? (
+                      <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.email}</p>
+                    ) : null}
                   </div>
 
                   <div>
                     <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
                       Phone <span className="text-[#e30613]">*</span>
                     </label>
-                    <input
-                      required
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => updateField("phone", e.target.value)}
-                      placeholder="+94 77 123 4567"
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
-                    />
+                    <div className="mt-1 flex gap-2">
+                      <select
+                        value={formData.countryCode}
+                        onChange={(e) => updateField("countryCode", e.target.value)}
+                        className={`w-[38%] rounded-xl border bg-white px-3 py-2 text-[14px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] ${validationErrors.countryCode ? "border-[#e30613]" : "border-[#0b0b0c]/15"}`}
+                      >
+                        {COUNTRY_CODES.map((country) => (
+                          <option key={country.value} value={country.value}>
+                            {country.label}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        value={formData.phone}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, "");
+                          updateField("phone", value);
+                        }}
+                        placeholder="771234567"
+                        className={`w-[62%] rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] ${validationErrors.phone ? "border-[#e30613]" : "border-[#0b0b0c]/15"
+                          }`}
+                      />
+                    </div>
+                    {validationErrors.countryCode ? (
+                      <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.countryCode}</p>
+                    ) : null}
+                    {validationErrors.phone ? (
+                      <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.phone}</p>
+                    ) : null}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                   <div>
                     <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
-                      Preferred bike
+                      Preferred bike <span className="text-[#e30613]">*</span>
                     </label>
                     <select
                       value={formData.bike}
                       onChange={(e) => updateField("bike", e.target.value)}
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 required"
+                      className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 ${validationErrors.bike ? "border-[#e30613]" : "border-[#0b0b0c]/15"}`}
                     >
                       <option value="">Select a bike</option>
                       {bikes.map((bike) => (
@@ -198,33 +300,44 @@ export default function BookTestRideModal({
                         </option>
                       ))}
                     </select>
+                    {validationErrors.bike ? (
+                      <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.bike}</p>
+                    ) : null}
                   </div>
 
                   <div>
                     <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
-                      Preferred date
+                      Preferred date <span className="text-[#e30613]">*</span>
                     </label>
                     <input
                       type="date"
+                      min={todayDate}
                       value={formData.date}
-                      onChange={(e) => updateField("date", e.target.value)}
-                      required
-                      className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                      onChange={(e) => handleDateChange(e.target.value)}
+                      className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 ${validationErrors.date ? "border-[#e30613]" : "border-[#0b0b0c]/15"}`}
                     />
+                    {validationErrors.date ? (
+                      <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.date}</p>
+                    ) : null}
                   </div>
                 </div>
 
                 <div>
                   <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
-                    Preferred time
+                    Preferred time <span className="text-[#e30613]">*</span>
                   </label>
                   <input
                     type="time"
+                    min={minimumTimeForToday}
+                    step="3600"
                     value={formData.time}
-                    onChange={(e) => updateField("time", e.target.value)}
-                    required
-                    className="mt-1 w-full rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5"
+                    onChange={(e) => handleTimeChange(e.target.value)}
+                    onBlur={handleTimeBlur}
+                    className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-2.5 ${validationErrors.time ? "border-[#e30613]" : "border-[#0b0b0c]/15"}`}
                   />
+                  {validationErrors.time ? (
+                    <p className="mt-1 text-[12px] text-[#e30613]">{validationErrors.time}</p>
+                  ) : null}
                 </div>
 
                 <div>
@@ -234,7 +347,6 @@ export default function BookTestRideModal({
                   <textarea
                     value={formData.message}
                     onChange={(e) => updateField("message", e.target.value)}
-                    required
                     placeholder="Any specific requests or questions?"
                     rows={2}
                     className="mt-1 w-full resize-none rounded-xl border border-[#0b0b0c]/15 bg-white px-4 py-2.5 text-[15px] text-[#0b0b0c] placeholder:text-[#0b0b0c]/30 outline-none transition-colors focus:border-[#e30613] sm:mt-1.5 sm:py-3"
