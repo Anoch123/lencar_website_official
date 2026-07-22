@@ -54,7 +54,7 @@ export default function WhyLencarSection() {
         <div className="grid gap-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
           <div className="relative min-h-[420px] overflow-hidden rounded-[28px] sm:min-h-[540px] lg:min-h-[640px]">
             <Image
-              src="/images/whylencar.jpeg"
+              src="/images/Why choose us.png"
               alt="A LENCAR rider smiling on a scooter in a European city street"
               fill
               priority

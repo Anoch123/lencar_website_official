@@ -74,7 +74,7 @@ export default function AboutUsPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0b0b0c] lg:aspect-auto">
               <Image
-                src="/images/powertrain.webp"
+                src="/images/About us.png"
                 alt="SL Mobility research and development team"
                 fill
                 className="object-cover"

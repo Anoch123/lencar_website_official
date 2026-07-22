@@ -73,11 +73,11 @@ export default function Aboutbss() {
             <div className="relative overflow-hidden rounded-[28px] border border-black/[0.06] bg-white p-4 shadow-[0_1px_2px_rgba(16,35,26,0.04)] sm:p-6 lg:p-8">
             <div className="relative aspect-square w-full min-h-[320px] sm:min-h-[450px] lg:min-h-[600px]">
               <Image
-                src="/images/bss.webp"
+                src="/images/BSS.png"
                 alt="Lencar battery swap cabinet with charged battery slots"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 60vw"
-                className="object-contain scale-110"
+                className="object-contain scale-110 rounded-[28px] sm:scale-100"
                 priority
               />
             </div>
