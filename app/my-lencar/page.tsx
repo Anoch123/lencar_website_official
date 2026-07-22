@@ -44,6 +44,7 @@ export default function MyLencar() {
         eyebrow="Our lineup"
         heading={["Electric bikes for", "the ride ahead"]}
         description="Explore our range of smart electric vehicles designed for the modern rider."
+        imageSrc="/images/MyLencar.png"
       />
 
       <main className="bg-white text-[#0b0b0c]">

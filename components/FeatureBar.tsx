@@ -5,6 +5,7 @@ import {
   MapPin,
   Wrench,
   Award,
+  BatteryCharging,
 } from "lucide-react";
 
 import BookTestRideModal from "@/components/BookTestRideModal";
@@ -12,31 +13,31 @@ import BookTestRideModal from "@/components/BookTestRideModal";
 
 const features = [
   {
-    icon: MapPin,
+    icon: BatteryCharging,
     title: (
       <>
-        <span className="text-[#01e044]">50+ </span> Dealers
+        <span className="text-[#01e044]">Life time </span> Service
       </>
     ),
-    desc: "Wide service network",
+    desc: "For the battery",
   },
   {
     icon: Wrench,
     title: (
       <>
-        <span className="text-[#01e044]">2 Years</span> Warranty
+        <span className="text-[#01e044]">5 Years</span> Warranty
       </>
     ),
-    desc: "on vehicle & battery",
+    desc: "on power train",
   },
   {
     icon: Award,
     title: (
       <>
-        <span className="text-[#01e044]">Best in test</span> 1000PS
+        <span className="text-[#01e044]">After</span> Sales
       </>
     ),
-    desc: "Ranked #1",
+    desc: "24/7 support",
   },
 ];
 

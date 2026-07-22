@@ -29,14 +29,6 @@ const slides = [
     description: "The Lencar Zivi is a premium electric scooter built for riders who need greater efficiency and longer-distance travel.",
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/zivi" },
   },
-  {
-    background: "/images/MyLencar.png",
-    video: "",
-    dark: true,
-    heading: "LENCAR ZIVI",
-    description: "The Lencar Zivi is a premium electric scooter built for riders who need greater efficiency and longer-distance travel.",
-    ctaPrimary: { label: "Learn More", href: "/lencar-bikes/zivi" },
-  },
 ];
 
 export default function CreativeSlider() {

@@ -30,6 +30,7 @@ export default function AboutUsPage() {
           { label: "Explore My lencar", href: "./my-lencar", variant: "primary" },
           { label: "Book a test ride", onClick: () => setBookOpen(true), variant: "outline" },
         ]}
+        imageSrc="/images/Aboutus.png"
       />
 
       <BookTestRideModal isOpen={bookOpen} onClose={() => setBookOpen(false)} />
@@ -74,7 +75,7 @@ export default function AboutUsPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0b0b0c] lg:aspect-auto">
               <Image
-                src="/images/About us.png"
+                src="/images/powertrain.webp"
                 alt="SL Mobility research and development team"
                 fill
                 className="object-cover"
