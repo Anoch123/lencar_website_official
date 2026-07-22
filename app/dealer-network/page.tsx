@@ -15,6 +15,7 @@ export default function NetworkPage() {
         eyebrow="Find us"
         heading={["Dealer network"]}
         description="Showrooms and service centers across Sri Lanka, ready to help you find your Lencar, book a test ride, or keep your vehicle running at its best."
+        imageSrc="/images/Showroom.png"
       />
 
       <main className="bg-white text-[#0b0b0c]">

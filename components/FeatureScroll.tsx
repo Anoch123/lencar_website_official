@@ -23,7 +23,7 @@ const FEATURES: {
     {
       id: 1,
       tab: "SCREEN 01",
-      title: "Unlock In One Tap",
+      title: "Battery percentage",
       desc: "Find the nearest bike on the map and unlock it before you've even put your helmet on.",
       icon: MapPinned,
       image: "/images/1.png",
@@ -32,7 +32,7 @@ const FEATURES: {
     {
       id: 2,
       tab: "SCREEN 02",
-      title: "Live Data",
+      title: "Nearest battery swapping station ",
       desc: "See exact charge, remaining range, and the nearest swap station without leaving the ride screen.",
       icon: BatteryCharging,
       image: "/images/2.png",
@@ -41,7 +41,7 @@ const FEATURES: {
     {
       id: 3,
       tab: "SCREEN 02",
-      title: "Live Range",
+      title: "Remaining riding distance ",
       desc: "See exact charge, remaining range, and the nearest swap station without leaving the ride screen.",
       icon: BatteryCharging,
       image: "/images/2.png",
@@ -50,7 +50,7 @@ const FEATURES: {
     {
       id: 4,
       tab: "SCREEN 02",
-      title: "Live Battery",
+      title: "Notifications",
       desc: "See exact charge, remaining range, and the nearest swap station without leaving the ride screen.",
       icon: BatteryCharging,
       image: "/images/2.png",

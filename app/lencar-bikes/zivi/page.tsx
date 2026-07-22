@@ -28,7 +28,7 @@ const FULL_SPECS = [
   { label: "Charger", value: "8A national-standard lithium battery charger" },
   { label: "Controller", value: "Double-layer self-cooling controller" },
   { label: "Security", value: "Dual remote-control alarm, laser-cut remote & key" },
-  { label: "Storage", value: "Expanded cabin space" },
+  { label: "Cabin Space", value: "More space available in cabin" },
 ];
 
 export default function LencarZivi() {

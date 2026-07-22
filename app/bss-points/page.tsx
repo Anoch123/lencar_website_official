@@ -27,6 +27,7 @@ export default function BSSPoints() {
           <><span className="text-[#e30613]">Sri Lanka</span></>,
         ]}
         description="Our Battery Swapping Station (BSS) network is designed to provide fast, reliable, and convenient battery exchange services for electric vehicle riders across Sri Lanka."
+        imageSrc="/images/Showroom.png"
       />
       <main className="bg-white text-[#0b0b0c]">
         {/* Intro */}

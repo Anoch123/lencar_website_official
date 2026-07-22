@@ -19,6 +19,18 @@ const HIGHLIGHTS = [
   "IoT connectivity via the Lencar app",
 ];
 
+const FULL_SPECS = [
+  { label: "Motor Power", value: "1.2 Kw rated power and 1.5 Kw peak power" },
+  { label: "Brakes", value: "220 dual disc brakes with opposite cylinders" },
+  { label: "Brake System", value: "Hydraulic" },
+  { label: "Tires", value: "90/90 -12 tire" },
+  { label: "Rear Suspension", value: "Hydraulic rear shock absorption" },
+  { label: "Charger", value: "8A National standard seat for charging seat of lithium battery charger" },
+  { label: "Controller", value: "Double-layer self-cooling controller" },
+  { label: "Security", value: "Double remote-control alarm, remote control handle and key handle need laser" },
+  { label: "Cabin Space", value: "No space available in cabin" },
+];
+
 export default function LencarERC80Plus() {
   const [open, setOpen] = useState(false);
 
@@ -55,9 +67,10 @@ export default function LencarERC80Plus() {
               eRc 80<span className="text-[#e30613]">+</span>
             </h1>
             <p className="font-body mt-6 max-w-md text-[16px] leading-relaxed text-[#4a4a4d]">
-              The eRc 80+ takes the same everyday footprint and pushes the
-              range and top speed further, for riders who need a bit more
-              out of every charge.
+              A smart electric scooter designed for daily commuting and city travel. 
+              It offers a riding range of up to 70 km on a full charge and features 
+              Lencar’s advanced battery-swapping technology, allowing riders to replace 
+              depleted batteries quickly and continue their journey without waiting for charging.  
             </p>
 
             <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-[#e5e5e5] pt-8">
@@ -108,6 +121,34 @@ export default function LencarERC80Plus() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Full specifications */}
+        <section className="border-t border-[#e5e5e5] bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
+            <p className="font-body text-[13px] font-bold uppercase tracking-[0.14em] text-[#e30613]">
+              Under the hood
+            </p>
+            <h2 className="font-display mt-4 max-w-xl text-[26px] font-black uppercase italic leading-[1.1] tracking-tight text-[#0b0b0c] sm:text-[32px]">
+              Full specifications
+            </h2>
+
+            <dl className="mt-10 grid grid-cols-1 gap-x-12 sm:grid-cols-2">
+              {FULL_SPECS.map((spec, i) => (
+                <div
+                  key={spec.label + i}
+                  className="flex items-baseline justify-between gap-6 border-b border-[#e5e5e5] py-4"
+                >
+                  <dt className="font-body flex-shrink-0 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#a3a3a8]">
+                    {spec.label}
+                  </dt>
+                  <dd className="font-body text-right text-[14px] leading-snug text-[#0b0b0c]">
+                    {spec.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
       </main>
