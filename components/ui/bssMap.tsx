@@ -3,8 +3,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { bssPoints } from "@/app/data/bssPoints";
 import { useEffect, useState } from "react";
+import { bssPoints } from "@/lib/constants/bssPoints";
 
 const bssIcon = new L.Icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",

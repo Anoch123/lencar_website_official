@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Footer from "@/components/footer";
-import BookTestRideModal from "@/components/BookTestRideModal";
+import Footer from "@/components/common/footer";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
 
 const SPECS = [
   { label: "Range", value: "70 km" },

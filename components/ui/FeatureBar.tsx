@@ -8,7 +8,7 @@ import {
   BatteryCharging,
 } from "lucide-react";
 
-import BookTestRideModal from "@/components/BookTestRideModal";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
 
 
 const features = [
@@ -127,7 +127,7 @@ export default function FeatureBar() {
             sm:justify-between
             sm:gap-6
             xl:w-auto
-            xl:gap-10
+            xl:gap-20
           "
         >
           {features.map((item, index) => {
@@ -136,7 +136,7 @@ export default function FeatureBar() {
             return (
               <div
                 key={index}
-                className="flex min-w-0 items-center gap-4 sm:flex-1 sm:basis-0"
+                className="flex min-w-10 items-center gap-4 sm:flex-1 sm:basis-0"
               >
                 <Icon
                   size={42}
@@ -144,7 +144,7 @@ export default function FeatureBar() {
                   className="shrink-0 text-[#01e044]"
                 />
 
-                <div className="min-w-0 leading-tight">
+                <div className="min-w-00 leading-tight">
                   <h3
                     className="
                       truncate

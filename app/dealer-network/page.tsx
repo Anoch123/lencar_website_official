@@ -1,12 +1,7 @@
-import Footer from "@/components/footer";
-import DealerNetwork from "@/components/Dealernetwork";
-import AllPageHero from "@/components/allPageHero";
-
-const STATS = [
-  { value: "9", label: "Showrooms & service centers" },
-  { value: "2", label: "Provinces covered" },
-  { value: "6", label: "Days a week open" },
-];
+import Footer from "@/components/common/footer";
+import DealerNetwork from "@/components/ui/Dealernetwork";
+import AllPageHero from "@/components/ui/allPageHero";
+import { STATS } from "@/lib/constants/dealer_network";
 
 export default function NetworkPage() {
   return (

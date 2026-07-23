@@ -2,34 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Footer from "@/components/footer";
-import BookTestRideModal from "@/components/BookTestRideModal";
-
-const SPECS = [
-  { label: "Range", value: "70 km" },
-  { label: "Top speed", value: "60 km/h" },
-  { label: "Motor Power", value: "1.2 kwh" },
-  { label: "Battery", value: "2kw Lithium Iron Phosphate" },
-];
-
-const HIGHLIGHTS = [
-  "Extended range for longer commutes",
-  "Higher top speed without a bigger footprint",
-  "Swappable battery for quick top-ups",
-  "IoT connectivity via the Lencar app",
-];
-
-const FULL_SPECS = [
-  { label: "Motor Power", value: "1.2 Kw rated power and 1.5 Kw peak power" },
-  { label: "Brakes", value: "220 dual disc brakes with opposite cylinders" },
-  { label: "Brake System", value: "Hydraulic" },
-  { label: "Tires", value: "90/90 -12 tire" },
-  { label: "Rear Suspension", value: "Hydraulic rear shock absorption" },
-  { label: "Charger", value: "8A National standard seat for charging seat of lithium battery charger" },
-  { label: "Controller", value: "Double-layer self-cooling controller" },
-  { label: "Security", value: "Double remote-control alarm, remote control handle and key handle need laser" },
-  { label: "Cabin Space", value: "No space available in cabin" },
-];
+import Footer from "@/components/common/footer";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
+import { FULL_SPECS, HIGHLIGHTS, SPECS } from "@/lib/constants/lencar_erceighty";
 
 export default function LencarERC80Plus() {
   const [open, setOpen] = useState(false);
@@ -51,7 +26,7 @@ export default function LencarERC80Plus() {
         <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-12 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0b0b0c]">
             <Image
-              src="/images/bikes/erc-80-plus.jpg"
+              src="/images/lencar_bike.png"
               alt="eRc 80 Plus"
               fill
               priority

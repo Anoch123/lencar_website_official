@@ -2,34 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Footer from "@/components/footer";
-import BookTestRideModal from "@/components/BookTestRideModal";
-
-const SPECS = [
-  { label: "Range", value: "90+ km" },
-  { label: "Top speed", value: "65 km/h" },
-  { label: "Motor Power", value: "2kw" },
-  { label: "Battery", value: "72 - 30AH Lithium Iron Phosphate" },
-];
-
-const HIGHLIGHTS = [
-  "Long Riding Range",
-  "Powerful Performance",
-  "Advanced Safety Features",
-  "IoT connectivity via the Lencar app"
-];
-
-const FULL_SPECS = [
-  { label: "Motor Power", value: "1.5kW rated power, 2kW peak power" },
-  { label: "Brakes", value: "220mm dual disc, opposite-cylinder calipers" },
-  { label: "Brake System", value: "Hydraulic" },
-  { label: "Tires", value: "3.50 – 10 vacuum tire" },
-  { label: "Rear Suspension", value: "Hydraulic shock absorber" },
-  { label: "Charger", value: "8A national-standard lithium battery charger" },
-  { label: "Controller", value: "Double-layer self-cooling controller" },
-  { label: "Security", value: "Dual remote-control alarm, laser-cut remote & key" },
-  { label: "Cabin Space", value: "More space available in cabin" },
-];
+import Footer from "@/components/common/footer";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
+import { FULL_SPECS, HIGHLIGHTS, SPECS } from "@/lib/constants/zivi";
 
 export default function LencarZivi() {
   const [open, setOpen] = useState(false);
@@ -50,7 +25,7 @@ export default function LencarZivi() {
         <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-12 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0b0b0c]">
             <Image
-              src="/images/bikes/zivi.jpg"
+              src="/images/zivi.png"
               alt="Zivi"
               fill
               priority

@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import "../app/css/creative-slider.css";
+import "../../app/css/creative-slider.css";
 
 const AUTOPLAY_DELAY = 6500;
 

@@ -3,11 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import Footer from "@/components/common/footer";
+import Navbar from "@/components/common/navbar";
 
 import { contentfulClient } from "@/lib/contentful";
-import ReadingProgress from "@/components/ReadingProgress";
+import ReadingProgress from "@/components/ui/ReadingProgress";
 
 const CONTENT_TYPE = "lencarErc80";
 

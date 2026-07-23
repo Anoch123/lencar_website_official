@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Footer from "@/components/footer";
-import BookTestRideButton from "@/components/BookTestRideButton";
+import Footer from "@/components/common/footer";
+import BookTestRideButton from "@/components/ui/BookTestRideButton";
 
 // Same data source the listing page uses — move this to a shared file
 // (e.g. @/lib/bikes.ts) once you're ready, so both pages read from one place.

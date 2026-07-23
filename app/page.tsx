@@ -1,10 +1,10 @@
-import AboutBSS from "@/components/aboutbss";
-import FeatureBar from "@/components/FeatureBar";
-import Footer from "@/components/footer";
-import Hero from "@/components/hero";
-import WhyLencarSection from "@/components/WhyLencarSection";
-import ImpactStats from "@/components/impactStats";
-import HomeSwapping from "@/components/homeSwapping";
+import AboutBSS from "@/components/ui/aboutbss";
+import FeatureBar from "@/components/ui/FeatureBar";
+import Footer from "@/components/common/footer";
+import Hero from "@/components/ui/hero";
+import WhyLencarSection from "@/components/ui/WhyLencarSection";
+import ImpactStats from "@/components/ui/impactStats";
+import HomeSwapping from "@/components/ui/homeSwapping";
 
 export default function Home() {
   return (

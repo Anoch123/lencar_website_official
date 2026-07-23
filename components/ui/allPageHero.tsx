@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Navbar from "./navbar";
+import Navbar from "../common/navbar";
 
 type CTA = {
   label: string;

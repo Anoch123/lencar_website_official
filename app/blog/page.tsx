@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/common/navbar";
+import Footer from "@/components/common/footer";
 
 import { contentfulClient } from "@/lib/contentful";
-import AllPageHero from "@/components/allPageHero";
+import AllPageHero from "@/components/ui/allPageHero";
 
 function getFieldValue(entry: any, keys: string[]) {
   const fields = entry?.fields ?? {};

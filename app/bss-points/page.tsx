@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import Footer from "@/components/footer";
-import AllPageHero from "@/components/allPageHero";
-import BSSPointsList from "@/components/bssPointsList";
+import Footer from "@/components/common/footer";
+import AllPageHero from "@/components/ui/allPageHero";
+import BSSPointsList from "@/components/ui/bssPointsList";
 
-const BSSMap = dynamic(() => import("@/components/bssMap"), {
+const BSSMap = dynamic(() => import("@/components/ui/bssMap"), {
   ssr: false,
   loading: () => (
     <div className="flex h-[420px] w-full items-center justify-center border border-[#e5e5e5] text-[#0b0b0c]/40">

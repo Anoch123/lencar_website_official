@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "../app/css/navbar.css";
+import "../../app/css/navbar.css";
 import { Oswald } from "next/font/google";
-import { MENU } from "../types";
+import { MENU } from "../../types";
 
 const oswald = Oswald({
     weight:"700",

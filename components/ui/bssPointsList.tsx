@@ -1,7 +1,7 @@
 "use client";
 
+import { bssPoints } from "@/lib/constants/bssPoints";
 import { useMemo, useState } from "react";
-import { bssPoints, type BSSPoint } from "@/app/data/bssPoints";
 
 const REGIONS = ["All", ...Array.from(new Set(bssPoints.map((p) => p.region)))];
 

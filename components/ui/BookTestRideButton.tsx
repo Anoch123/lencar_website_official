@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import BookTestRideModal from "@/components/BookTestRideModal";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
 
 type BookTestRideButtonProps = {
   bikeName?: string;

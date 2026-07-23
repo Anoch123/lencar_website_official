@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../app/css/globals.css";
 
 import { Inter, Oswald } from "next/font/google";
-import WhatsAppChat from "@/components/whatsappChat";
+import WhatsAppChat from "@/components/ui/whatsappChat";
 
 const inter = Inter({
   subsets:["latin"],

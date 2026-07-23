@@ -1,40 +1,8 @@
 import Image from "next/image";
-import Footer from "@/components/footer";
-import AllPageHero from "@/components/allPageHero"
-import FaqAccordion from "@/components/Faqaccordion";
-
-const BIKES = [
-  // {
-  //   name: "eRc 80",
-  //   slug: "erc-80",
-  //   tagline: "The everyday city commuter.",
-  //   image: "/images/bikes/erc-80.jpg",
-  //   specs: [
-  //     { label: "Range", value: "70 km" },
-  //     { label: "Top speed", value: "60 km/h" },
-  //   ],
-  // },
-  {
-    name: "eRc 80+",
-    slug: "erc-80-plus",
-    tagline: "More range, more power, same footprint.",
-    image: "/images/bikes/erc-80-plus.jpg",
-    specs: [
-      { label: "Range", value: "70 km" },
-      { label: "Top speed", value: "60 km/h" },
-    ],
-  },
-  {
-    name: "Zivi",
-    slug: "zivi",
-    tagline: "Light, agile, built for tight city streets.",
-    image: "/images/bikes/zivi.jpg",
-    specs: [
-      { label: "Range", value: "100+ km" },
-      { label: "Top speed", value: "65 km/h" },
-    ],
-  },
-];
+import Footer from "@/components/common/footer";
+import AllPageHero from "@/components/ui/allPageHero"
+import FaqAccordion from "@/components/ui/Faqaccordion";
+import { BIKES } from "@/lib/constants/my_lencar";
 
 export default function MyLencar() {
   return (

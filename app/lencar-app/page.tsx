@@ -1,7 +1,7 @@
-import Footer from "@/components/footer";
-import FeatureScroll from "@/components/FeatureScroll";
-import AllPageHero from "@/components/allPageHero";
-import AppDownload from "@/components/appDownload";
+import Footer from "@/components/common/footer";
+import FeatureScroll from "@/components/ui/FeatureScroll";
+import AllPageHero from "@/components/ui/allPageHero";
+import AppDownload from "@/components/ui/appDownload";
 
 export default function LencarApp() {
   return (

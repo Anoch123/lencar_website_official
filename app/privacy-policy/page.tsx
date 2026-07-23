@@ -1,8 +1,8 @@
 "use client";
 
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
-import AllPageHero from "@/components/allPageHero";
+import Footer from "@/components/common/footer";
+import Navbar from "@/components/common/navbar";
+import AllPageHero from "@/components/ui/allPageHero";
 import { useEffect, useState } from "react";
 
 const sections = [

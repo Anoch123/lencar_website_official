@@ -2,16 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Footer from "@/components/footer";
-import AllPageHero from "@/components/allPageHero";
-import NewsletterSignup from "@/components/newslettersignup";
-import BookTestRideModal from "@/components/BookTestRideModal";
-
-const STATS = [
-  { value: "2015", label: "Founded in Sri Lanka" },
-  { value: "UoM", label: "Engineers from University of Moratuwa" },
-  { value: "SL + EU", label: "Local expertise, European know-how" },
-];
+import Footer from "@/components/common/footer";
+import AllPageHero from "@/components/ui/allPageHero";
+import BookTestRideModal from "@/components/ui/BookTestRideModal";
+import { STATS } from "@/lib/constants/about_us";
 
 export default function AboutUsPage() {
   const [bookOpen, setBookOpen] = useState(false);
