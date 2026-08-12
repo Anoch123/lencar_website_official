@@ -93,11 +93,11 @@ function Modal({ isOpen, onClose, heading, children }) {
       />
 
       {/* panel */}
-      <div className="relative w-full max-w-lg overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#141416] shadow-2xl">
-        <div className="flex items-center justify-between border-b border-white/[0.06] px-6 py-5">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#141416] shadow-2xl">
+        <div className="flex items-center justify-between border-b border-white/[0.06] px-7 py-6">
           <h3
             id="feature-modal-heading"
-            className="font-display text-xl font-black uppercase italic tracking-tight text-[#f5f4f1]"
+            className="font-display text-2xl font-black uppercase italic tracking-tight text-[#f5f4f1]"
           >
             {heading}
           </h3>
@@ -105,13 +105,13 @@ function Modal({ isOpen, onClose, heading, children }) {
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-[#c7c7cc] transition-colors hover:bg-[#01e044]/15 hover:text-[#01e044] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044]"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-[#c7c7cc] transition-colors hover:bg-[#01e044]/15 hover:text-[#01e044] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044]"
           >
-            <X size={18} strokeWidth={2.5} />
+            <X size={20} strokeWidth={2.5} />
           </button>
         </div>
 
-        <div className="max-h-[75vh] overflow-y-auto px-6 py-6">{children}</div>
+        <div className="max-h-[80vh] overflow-y-auto px-7 py-7">{children}</div>
       </div>
     </div>
   );
@@ -250,7 +250,7 @@ function SmartAppContent() {
     <div className="flex flex-col gap-5">
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
         <Image
-          src="/images/1.png"
+          src="/images/downloading.png"
           alt="Lencar smart mobile app preview"
           fill
           sizes="(min-width: 640px) 32rem, 100vw"

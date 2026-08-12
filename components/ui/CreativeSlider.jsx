@@ -86,10 +86,8 @@ export default function CreativeSlider() {
 
               <div className="slide-container">
                 <div className="slide-row">
-                  <div className="slider-content">
-                    
-
                     <ImpactStats distanceKm={2094513.9886} />
+                  <div className="slider-content">
 
                     <div
                       className="slide-eyebrow"
