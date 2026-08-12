@@ -1,0 +1,483 @@
+import { BSSPoint } from "@/types/bssPoints";
+
+export const bssPoints: BSSPoint[] = [
+  {
+
+    id: "1",
+
+    name: "Lencar BSS Miriswaththa",
+
+    region: "Western",
+
+    address: "84/C, Miriswatta, Muduugoda, Gampaha",
+
+    lat: 7.074552,
+
+    lng: 80.01495,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "84/C, Miriswatta, Muduugoda, Gampaha",
+
+  },
+
+  {
+
+    id: "2",
+
+    name: "Lencar BSS Seeduwa",
+
+    region: "Western",
+
+    address: "73, Liyanagemulla, Seeduwa",
+
+    lat: 7.132339,
+
+    lng: 79.888596,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "73, Liyanagemulla, Seeduwa",
+
+  },
+
+  {
+
+    id: "3",
+
+    name: "Lencar BSS Katunayake",
+
+    region: "Western",
+
+    address: "128, 18th Mile Post, Katunayake",
+
+    lat: 7.15511,
+
+    lng: 79.87175,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "128, 18th Mile Post, Katunayake",
+
+  },
+
+  {
+
+    id: "4",
+
+    name: "Lencar BSS Udugampola",
+
+    region: "Western",
+
+    address: "140 Dobawala, Udugampola",
+
+    lat: 7.120514,
+
+    lng: 79.98395,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "140 Dobawala, Udugampola",
+
+  },
+
+  {
+
+    id: "5",
+
+    name: "Lencar BSS Kadawatha",
+
+    region: "Western",
+
+    address: "Subodha Mawatha, Kadawatha",
+
+    lat: 7.006708,
+
+    lng: 79.9582,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "Subodha Mawatha, Kadawatha",
+
+  },
+
+  {
+
+    id: "6",
+
+    name: "Lencar BSS Kiribathgoda",
+
+    region: "Western",
+
+    address: "89/16, Jinadasa Nandasena Mawatha, Kiribathgoda",
+
+    lat: 40.710048,
+
+    lng: -79.96544,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "89/16, Jinadasa Nandasena Mawatha, Kiribathgoda",
+
+  },
+
+  {
+
+    id: "7",
+
+    name: "Lencar BSS Kochchikade",
+
+    region: "Western",
+
+    address: "Thopputhota Filling Station, Chilaw-Colombo Main Rd, 61110",
+
+    lat: 7.27417,
+
+    lng: 79.86241,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "Thopputhota Filling Station, Chilaw-Colombo Main Rd, 61110",
+
+  },
+
+  {
+
+    id: "8",
+
+    name: "Lencar BSS Paliyagoda",
+
+    region: "Western",
+
+    address: "3 Negombo Rd, Wattala 11300",
+
+    lat: 6.961071,
+
+    lng: 79.88095,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "3 Negombo Rd, Wattala 11300",
+
+  },
+
+  {
+
+    id: "9",
+
+    name: "Lencar BSS Minuwangoda",
+
+    region: "Western",
+
+    address: "304, Negombo Road, Kurunegala",
+
+    lat: 7.182367,
+
+    lng: 79.961191,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "304, Negombo Road, Kurunegala",
+
+  },
+
+  {
+
+    id: "10",
+
+    name: "Lencar BSS Thalawathugoda",
+
+    region: "Western",
+
+    address: "263/1, Hokandara Rd, Ruhunupura",
+
+    lat: 6.877135,
+
+    lng: 79.938515,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "263/1, Hokandara Rd, Ruhunupura",
+
+  },
+
+  {
+
+    id: "11",
+
+    name: "Lencar BSS Rawatawatta",
+
+    region: "Western",
+
+    address: "Rawatawatta Junction, Galle Road, Moratuwa",
+
+    lat: 6.787884,
+
+    lng: 79.8853,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "Rawatawatta Junction, Galle Road, Moratuwa",
+
+  },
+
+  {
+
+    id: "12",
+
+    name: "Lencar BSS Soysapura",
+
+    region: "Western",
+
+    address: "164, Soysapura, Moratuwa",
+
+    lat: 6.91519,
+
+    lng: 79.88125,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "164, Soysapura, Moratuwa",
+
+  },
+
+  {
+
+    id: "13",
+
+    name: "Lencar BSS Kolonnawa",
+
+    region: "Western",
+
+    address: "595, Kolonnawa Road, Wellampitiya",
+
+    lat: 6.936831,
+
+    lng: 79.89584,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "595, Kolonnawa Road, Wellampitiya",
+
+  },
+
+  {
+
+    id: "14",
+
+    name: "Lencar BSS Borella",
+
+    region: "Western",
+
+    address: "Thilakarathnaramaya Temple, Ward Place, Colombo 08",
+
+    lat: 6.8664,
+
+    lng: 80.0166,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "Thilakarathnaramaya Temple, Ward Place, Colombo 08",
+
+  },
+
+  {
+
+    id: "15",
+
+    name: "Lencar BSS Padukka",
+
+    region: "Western",
+
+    address: "77/7/1, Polgahahota, Wewelktiya Bope, Padukka",
+
+    lat: 6.841821,
+
+    lng: 80.10291,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "77/7/1, Polgahahota, Wewelktiya Bope, Padukka",
+
+  },
+
+  {
+
+    id: "16",
+
+    name: "Lencar BSS Beruwala",
+
+    region: "Western",
+
+    address: "Galle Rd, Beruwala",
+
+    lat: 6.474436,
+
+    lng: 79.983842,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "Galle Rd, Beruwala",
+
+  },
+
+  {
+
+    id: "17",
+
+    name: "Lencar BSS Bandaragama",
+
+    region: "Western",
+
+    address: "17A, Horana Rd, Bandaragama",
+
+    lat: 6.71478474823078,
+
+    lng: 79.9891399402368,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "17A, Horana Rd, Bandaragama",
+
+  },
+
+  {
+
+    id: "18",
+
+    name: "Lencar BSS Maggona",
+
+    region: "Western",
+
+    address: "150/A, Galle Road, Diyalagoda, Maggona",
+
+    lat: 6.507246,
+
+    lng: 79.981156,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "150/A, Galle Road, Diyalagoda, Maggona",
+
+  },
+
+  {
+
+    id: "19",
+
+    name: "Lencar BSS Panadura",
+
+    region: "Western",
+
+    address: "43A, Janapriya Mawatha, Awariyawatta, Alubomulla, Panadura",
+
+    lat: 6.710122,
+
+    lng: 79.915023,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "43A, Janapriya Mawatha, Awariyawatta, Alubomulla, Panadura",
+
+  },
+
+  {
+
+    id: "20",
+
+    name: "Lencar BSS Agalawaththa",
+
+    region: "Western",
+
+    address: "226/01, Yatiyana, Agalawatta",
+
+    lat: 40.7101,
+
+    lng: -79.965332,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "226/01, Yatiyana, Agalawatta",
+
+  },
+
+  {
+
+    id: "21",
+
+    name: "Lencar BSS Kalutara",
+
+    region: "Western",
+
+    address: "3B, St. Philipneres Church Road, Katukurunda",
+
+    lat: 6.561281,
+
+    lng: 79.96779,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "3B, St. Philipneres Church Road, Katukurunda",
+
+  },
+
+  {
+
+    id: "22",
+
+    name: "Lencar BSS Dharga Town",
+
+    region: "Western",
+
+    address: "87/02, Main Street, Darga Town",
+
+    lat: 6.441309,
+
+    lng: 80.011036,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "87/02, Main Street, Darga Town",
+
+  },
+
+  {
+
+    id: "23",
+
+    name: "Lencar BSS Kurunagala",
+
+    region: "Northwestern",
+
+    address: "44, Narammala-Madampe Road, Kurunagala",
+
+    lat: 7.480435,
+
+    lng: 80.350488,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "44, Narammala-Madampe Road, Kurunagala",
+
+  },
+
+  {
+
+    id: "24",
+
+    name: "Lencar BSS Kuliyapitiya",
+
+    region: "Northwestern",
+
+    address: "190, Uthurawala, Welipannagahamulla, Kuliyapitiya",
+
+    lat: 7.469986,
+
+    lng: 80.043958,
+
+    hours: "Open 24 hours",
+
+    mapsQuery: "190, Uthurawala, Welipannagahamulla, Kuliyapitiya",
+
+  },
+];
