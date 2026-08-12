@@ -20,7 +20,6 @@ export default function Home() {
       <Hero />
       <FeatureBar />
       <WhyLencarSection />
-      {/* <ImpactStats distanceKm={2094513.9886} /> */}
       <AboutBSS />
       {/* <HomeSwapping /> */}
       <Footer />

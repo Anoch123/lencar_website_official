@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -59,6 +60,8 @@ const FEATURES = [
 /* ------------------------------------------------------------------ */
 
 function Modal({ isOpen, onClose, heading, children }) {
+  const [mounted, setMounted] = useState(false);
+
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") onClose();
@@ -66,19 +69,14 @@ function Modal({ isOpen, onClose, heading, children }) {
     [onClose]
   );
 
+  // Portals need a real DOM node, which only exists client-side after mount.
   useEffect(() => {
-    if (!isOpen) return;
-    document.addEventListener("keydown", handleKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [isOpen, handleKeyDown]);
+    setMounted(true);
+  }, []);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -113,7 +111,8 @@ function Modal({ isOpen, onClose, heading, children }) {
 
         <div className="max-h-[80vh] overflow-y-auto px-7 py-7">{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -248,12 +247,12 @@ function PowertrainContent() {
 function SmartAppContent() {
   return (
     <div className="flex flex-col gap-5">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+      <div className="relative mx-auto aspect-[4/3] w-full max-w-[420px] overflow-hidden rounded-2xl">
         <Image
           src="/images/downloading.png"
           alt="Lencar smart mobile app preview"
           fill
-          sizes="(min-width: 640px) 32rem, 100vw"
+          sizes="220px"
           className="object-contain p-2"
         />
       </div>
