@@ -43,7 +43,7 @@ const FEATURES = [
     title: "Powertrain",
     description:
       "A 5-year warranty covers the powertrain. Built for durability, backed by reliable support, and designed for long-term peace of mind.",
-    popupType: "powertrain",
+    href: "/about-us",
   },
   {
     id: "smart-app",
@@ -51,7 +51,7 @@ const FEATURES = [
     title: "Smart Mobile App",
     description:
       "Stay connected to your scooter anytime. Check battery level, track rides, find nearby battery swap stations, and manage your scooter — all from the Lencar app.",
-    popupType: "app",
+    href: "/lencar-app",
   },
 ];
 
@@ -224,59 +224,12 @@ function SwappingNetworkContent() {
   );
 }
 
-function PowertrainContent() {
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-        <Image
-          src="/images/powertrain.webp"
-          alt="Lencar powertrain cutaway"
-          fill
-          sizes="(min-width: 640px) 32rem, 100vw"
-          className="object-contain p-2 rounded"
-        />
-      </div>
-      <p className="font-body text-sm leading-relaxed text-[#a3a3a8]">
-        Engineered for Sri Lankan roads and backed by a 5-year powertrain
-        warranty.
-      </p>
-    </div>
-  );
-}
-
-function SmartAppContent() {
-  return (
-    <div className="flex flex-col gap-5">
-      <div className="relative mx-auto aspect-[4/3] w-full max-w-[420px] overflow-hidden rounded-2xl">
-        <Image
-          src="/images/downloading.png"
-          alt="Lencar smart mobile app preview"
-          fill
-          sizes="220px"
-          className="object-contain p-2"
-        />
-      </div>
-      <Link
-        href="/lencar-app"
-        className="font-body inline-flex items-center justify-center gap-1.5 rounded-full bg-[#01e044] px-5 py-3 text-sm font-semibold text-[#0b0b0c] transition-colors hover:bg-[#02c93d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044]"
-      >
-        Go to the Lencar App page
-        <ArrowUpRight size={15} strokeWidth={2.5} />
-      </Link>
-    </div>
-  );
-}
-
 function PopupContent({ type }) {
   switch (type) {
     case "video":
       return <BatterySwapVideoContent />;
     case "network":
       return <SwappingNetworkContent />;
-    case "powertrain":
-      return <PowertrainContent />;
-    case "app":
-      return <SmartAppContent />;
     default:
       return null;
   }
@@ -346,7 +299,9 @@ export default function WhyLencarSection() {
                 <FeatureCard
                   key={feature.id}
                   feature={feature}
-                  onOpen={() => setActiveFeature(feature)}
+                  onOpen={() => {
+                    if (!feature.href) setActiveFeature(feature);
+                  }}
                 />
               ))}
             </div>
@@ -367,26 +322,38 @@ export default function WhyLencarSection() {
 
 function FeatureCard({ feature, onOpen }) {
   const Icon = feature.icon;
-  return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="group relative rounded-2xl border border-white/[0.06] bg-[#141416] p-6 text-left transition-colors duration-300 hover:border-[#01e044]/40 hover:bg-[#17171a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044] sm:pl-8"
-    >
-      <div className="flex items-start gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#01e044]/10 text-[#ff4d43] transition-transform duration-300 group-hover:scale-105">
-          <Icon size={20} strokeWidth={2} />
-        </div>
 
-        <div className="min-w-0">
-          <h3 className="font-body text-[17px] font-semibold text-[#01e044]">
-            {feature.title}
-          </h3>
-          <p className="font-body mt-1.5 text-[14px] leading-relaxed text-[#a3a3a8]">
-            {feature.description}
-          </p>
-        </div>
+  const inner = (
+    <div className="flex items-start gap-4">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#01e044]/10 text-[#ff4d43] transition-transform duration-300 group-hover:scale-105">
+        <Icon size={20} strokeWidth={2} />
       </div>
+
+      <div className="min-w-0">
+        <h3 className="font-body text-[17px] font-semibold text-[#01e044]">
+          {feature.title}
+        </h3>
+        <p className="font-body mt-1.5 text-[14px] leading-relaxed text-[#a3a3a8]">
+          {feature.description}
+        </p>
+      </div>
+    </div>
+  );
+
+  const className =
+    "group relative rounded-2xl border border-white/[0.06] bg-[#141416] p-6 text-left transition-colors duration-300 hover:border-[#01e044]/40 hover:bg-[#17171a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044] sm:pl-8";
+
+  if (feature.href) {
+    return (
+      <Link href={feature.href} className={className}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onOpen} className={className}>
+      {inner}
     </button>
   );
 }

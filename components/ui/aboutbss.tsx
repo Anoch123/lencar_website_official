@@ -18,19 +18,19 @@ type Step = {
 const STEPS: Step[] = [
   {
     icon: ArrowDownToLine,
-    title: "Insert your empty battery",
+    title: "10 Seconds",
     description:
       "Remove the depleted battery from your scooter and place it into an available slot at the battery swapping station.",
   },
   {
     icon: BatteryCharging,
-    title: "Collect a full charged battery",
+    title: "20 Seconds",
     description:
       "The station will automatically unlock a fully charged battery. Take it out and insert it into your scooter.",
   },
   {
     icon: Bike,
-    title: "Continue your ride",
+    title: "30 Seconds",
     description:
       "You're ready to go again in under a minute, with a fully charged battery and no long charging wait.",
   },
@@ -110,27 +110,27 @@ export default function Aboutbss() {
           <div className="relative">
             <div
               aria-hidden
-              className="absolute bottom-8 left-[23px] top-8 hidden w-px bg-[#10231a]/10 sm:block"
+              className="absolute bottom-8 left-[27px] top-8 hidden w-px bg-[#10231a]/10 sm:block"
             />
-            <ol className="flex flex-col gap-5">
+            <ol className="flex flex-col gap-6">
               {STEPS.map((step, i) => {
                 const Icon = step.icon;
                 return (
                   <li
                     key={step.title}
-                    className="group relative flex items-start gap-4 rounded-2xl border border-black/[0.05] bg-white p-5 transition-colors duration-300 hover:border-[#2fa84b]/40 sm:pl-6"
+                    className="group relative flex items-start gap-5 rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_3px_rgba(16,35,26,0.05)] transition-all duration-300 hover:border-[#2fa84b]/50 hover:shadow-[0_6px_20px_rgba(16,35,26,0.08)] sm:pl-7"
                   >
-                    <span className="font-body absolute -left-2.5 -top-2.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#10231a] text-[11px] font-bold text-white sm:left-3 sm:top-1/2 sm:-translate-y-1/2">
+                    <span className="font-body absolute -left-3 -top-3 flex h-7 w-7 items-center justify-center rounded-full bg-[#10231a] text-[12px] font-bold text-white sm:left-3.5 sm:top-1/2 sm:-translate-y-1/2">
                       {i + 1}
                     </span>
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#2fa84b]/10 text-[#1f7a37] transition-transform duration-300 group-hover:scale-105 sm:ml-6">
-                      <Icon size={20} strokeWidth={2} />
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#2fa84b]/10 text-[#1f7a37] transition-transform duration-300 group-hover:scale-105 sm:ml-7">
+                      <Icon size={24} strokeWidth={2} />
                     </div>
                     <div className="min-w-0 pt-0.5">
-                      <h3 className="font-body text-[16px] font-semibold text-[#10231a]">
+                      <h3 className="font-display text-[22px] font-extrabold leading-tight tracking-tight text-[#10231a] sm:text-[26px]">
                         {step.title}
                       </h3>
-                      <p className="font-body mt-1 text-[14px] leading-relaxed text-[#5b6b60]">
+                      <p className="font-body mt-2 text-[15px] leading-relaxed text-[#3f4c44] sm:text-[15.5px]">
                         {step.description}
                       </p>
                     </div>

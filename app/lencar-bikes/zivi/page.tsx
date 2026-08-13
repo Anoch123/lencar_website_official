@@ -123,9 +123,9 @@ export default function LencarZivi() {
               {/* <p className="font-body text-[11px] uppercase tracking-[0.1em] text-[#a3a3a8]">
                 Starting at
               </p> */}
-              <p className="font-display mt-1 text-[26px] font-black text-[#0b0b0c]">
+              {/* <p className="font-display mt-1 text-[26px] font-black text-[#0b0b0c]">
                 LKR 469,900.00
-              </p>
+              </p> */}
             </div>
 
             <div className="mt-9 flex flex-wrap items-center gap-4">

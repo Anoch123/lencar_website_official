@@ -80,9 +80,9 @@ export default function MyLencar() {
                     {/* <p className="font-body text-[11px] uppercase tracking-[0.1em] text-[#a3a3a8]">
                       Starting at
                     </p> */}
-                    <p className="font-display mt-1 text-[26px] font-black text-[#0b0b0c]">
+                    {/* <p className="font-display mt-1 text-[26px] font-black text-[#0b0b0c]">
                       LKR {bike.price}
-                    </p>
+                    </p> */}
                   </div>
 
                   <span className="font-body mt-6 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.04em] text-[#0F4C81]">
