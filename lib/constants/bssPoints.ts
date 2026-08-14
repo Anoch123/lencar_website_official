@@ -3,7 +3,7 @@ import { BSSPoint } from "@/types/bssPoints";
 export const bssPoints: BSSPoint[] = [
   {
     id: "1",
-    name: "Lencar BSS Miriswaththa",
+    name: "BSS Miriswaththa",
     region: "Western",
     district: "Gampaha",
     address: "84/C, Miriswatta, Muduugoda, Gampaha",
@@ -14,7 +14,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "2",
-    name: "Lencar BSS Seeduwa",
+    name: "BSS Seeduwa",
     region: "Western",
     district: "Gampaha",
     address: "73, Liyanagemulla, Seeduwa",
@@ -25,7 +25,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "3",
-    name: "Lencar BSS Katunayake",
+    name: "BSS Katunayake",
     region: "Western",
     district: "Gampaha",
     address: "128, 18th Mile Post, Katunayake",
@@ -36,7 +36,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "4",
-    name: "Lencar BSS Udugampola",
+    name: "BSS Udugampola",
     region: "Western",
     district: "Gampaha",
     address: "140 Dobawala, Udugampola",
@@ -47,7 +47,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "5",
-    name: "Lencar BSS Kadawatha",
+    name: "BSS Kadawatha",
     region: "Western",
     district: "Gampaha",
     address: "Subodha Mawatha, Kadawatha",
@@ -58,7 +58,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "6",
-    name: "Lencar BSS Kiribathgoda",
+    name: "BSS Kiribathgoda",
     region: "Western",
     district: "Gampaha",
     address: "89/16, Jinadasa Nandasena Mawatha, Kiribathgoda",
@@ -69,7 +69,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "7",
-    name: "Lencar BSS Kochchikade",
+    name: "BSS Kochchikade",
     region: "Western",
     district: "Gampaha",
     address: "Thopputhota Filling Station, Chilaw-Colombo Main Rd, 61110",
@@ -80,7 +80,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "8",
-    name: "Lencar BSS Paliyagoda",
+    name: "BSS Paliyagoda",
     region: "Western",
     district: "Gampaha",
     address: "3 Negombo Rd, Wattala 11300",
@@ -91,7 +91,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "9",
-    name: "Lencar BSS Minuwangoda",
+    name: "BSS Minuwangoda",
     region: "Western",
     district: "Gampaha",
     address: "304, Negombo Road, Kurunegala",
@@ -102,7 +102,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "10",
-    name: "Lencar BSS Thalawathugoda",
+    name: "BSS Thalawathugoda",
     region: "Western",
     district: "Colombo",
     address: "263/1, Hokandara Rd, Ruhunupura",
@@ -113,7 +113,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "11",
-    name: "Lencar BSS Rawatawatta",
+    name: "BSS Rawatawatta",
     region: "Western",
     district: "Colombo",
     address: "Rawatawatta Junction, Galle Road, Moratuwa",
@@ -124,7 +124,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "12",
-    name: "Lencar BSS Soysapura",
+    name: "BSS Soysapura",
     region: "Western",
     district: "Colombo",
     address: "164, Soysapura, Moratuwa",
@@ -135,7 +135,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "13",
-    name: "Lencar BSS Kolonnawa",
+    name: "BSS Kolonnawa",
     region: "Western",
     district: "Colombo",
     address: "595, Kolonnawa Road, Wellampitiya",
@@ -146,7 +146,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "14",
-    name: "Lencar BSS Borella",
+    name: "BSS Borella",
     region: "Western",
     district: "Colombo",
     address: "Thilakarathnaramaya Temple, Ward Place, Colombo 08",
@@ -157,7 +157,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "15",
-    name: "Lencar BSS Padukka",
+    name: "BSS Padukka",
     region: "Western",
     district: "Colombo",
     address: "77/7/1, Polgahahota, Wewelktiya Bope, Padukka",
@@ -168,7 +168,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "16",
-    name: "Lencar BSS Beruwala",
+    name: "BSS Beruwala",
     region: "Western",
     district: "Kalutara",
     address: "Galle Rd, Beruwala",
@@ -179,7 +179,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "17",
-    name: "Lencar BSS Bandaragama",
+    name: "BSS Bandaragama",
     region: "Western",
     district: "Kalutara",
     address: "17A, Horana Rd, Bandaragama",
@@ -190,7 +190,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "18",
-    name: "Lencar BSS Maggona",
+    name: "BSS Maggona",
     region: "Western",
     district: "Kalutara",
     address: "150/A, Galle Road, Diyalagoda, Maggona",
@@ -201,7 +201,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "19",
-    name: "Lencar BSS Panadura",
+    name: "BSS Panadura",
     region: "Western",
     district: "Kalutara",
     address: "43A, Janapriya Mawatha, Awariyawatta, Alubomulla, Panadura",
@@ -212,7 +212,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "20",
-    name: "Lencar BSS Agalawaththa",
+    name: "BSS Agalawaththa",
     region: "Western",
     district: "Kalutara",
     address: "226/01, Yatiyana, Agalawatta",
@@ -223,7 +223,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "21",
-    name: "Lencar BSS Kalutara",
+    name: "BSS Kalutara",
     region: "Western",
     district: "Kalutara",
     address: "3B, St. Philipneres Church Road, Katukurunda",
@@ -234,7 +234,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "22",
-    name: "Lencar BSS Dharga Town",
+    name: "BSS Dharga Town",
     region: "Western",
     district: "Kalutara",
     address: "87/02, Main Street, Darga Town",
@@ -245,7 +245,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "23",
-    name: "Lencar BSS Kurunagala",
+    name: "BSS Kurunagala",
     region: "Northwestern",
     district: "Kurunegala",
     address: "44, Narammala-Madampe Road, Kurunagala",
@@ -256,7 +256,7 @@ export const bssPoints: BSSPoint[] = [
   },
   {
     id: "24",
-    name: "Lencar BSS Kuliyapitiya",
+    name: "BSS Kuliyapitiya",
     region: "Northwestern",
     district: "Kurunegala",
     address: "190, Uthurawala, Welipannagahamulla, Kuliyapitiya",
