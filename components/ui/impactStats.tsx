@@ -160,34 +160,31 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
             </div>
 
             {pinned && (
-                <div className="stat-pinned-bar">
-                    <div className="mx-auto flex max-w-6xl justify-center px-4 py-2.5">
+                <div className="stat-pinned">
+                    <div className="inline-flex rounded-[3px] border border-white/15 bg-black/30 px-5 py-3 backdrop-blur-md">
                         {renderStats()}
                     </div>
                 </div>
             )}
 
             <style jsx>{`
-                .stat-pinned-bar {
+                .stat-pinned {
                     position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
+                    top: 16px;
+                    left: 50%;
+                    transform: translateX(-50%);
                     z-index: 60;
-                    background: rgba(8, 8, 8, 0.82);
-                    backdrop-filter: blur(10px);
-                    border-bottom: 1px solid rgba(124, 255, 107, 0.18);
                     animation: statPinnedIn 0.3s ease both;
                 }
 
                 @keyframes statPinnedIn {
                     from {
                         opacity: 0;
-                        transform: translateY(-100%);
+                        transform: translate(-50%, -12px);
                     }
                     to {
                         opacity: 1;
-                        transform: translateY(0);
+                        transform: translate(-50%, 0);
                     }
                 }
 

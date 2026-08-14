@@ -38,6 +38,10 @@ export default function CreativeSlider() {
   return (
     <section className="creative-showcase--slider">
 
+      <div className="fixed top-24 left-2 md:left-40 z-50">
+        <ImpactStats distanceKm={2094513.9886} />
+      </div>
+
       <Swiper
         modules={[Autoplay, Navigation, Pagination, Parallax]}
         className="swiper-container-h"
@@ -86,13 +90,12 @@ export default function CreativeSlider() {
 
               <div className="slide-container">
                 <div className="slide-row">
-                    <ImpactStats distanceKm={2094513.9886} />
                   <div className="slider-content">
 
                     <div
                       className="slide-eyebrow"
                       data-swiper-parallax="-500"
-                    >
+                    > 
                     </div>
 
                     <h1
