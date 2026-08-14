@@ -83,6 +83,7 @@
     .navbar {
         height: 70px;
         padding: 0 25px;
+        z-index: 100;
     }
 
     .logo {
@@ -110,7 +111,7 @@
         gap: 25px;
         transform: translateX(100%);
         transition: .3s;
-        z-index: 30;
+        z-index: 70;
     }
 
     .mobile-nav.open {
@@ -156,7 +157,7 @@
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.5);
-        z-index: 25;
+        z-index: 60;
     }
 }
 
@@ -166,6 +167,7 @@
     .navbar {
         height: 70px;
         padding: 0 25px;
+        z-index: 100;
     }
 
     .logo {
@@ -193,7 +195,7 @@
         gap: 25px;
         transform: translateX(100%);
         transition: .3s;
-        z-index: 30;
+        z-index: 70;
     }
 
     .mobile-nav.open {
@@ -239,6 +241,6 @@
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.5);
-        z-index: 25;
+        z-index: 60;
     }
 }

@@ -14,7 +14,7 @@ function FlipText({ text, tick }: { text: string; tick: number }) {
     return (
         <span className="stat-flip">
             {text.split("").map((ch, i) => (
-                <span key={`${tick}-${i}`} className="stat-flip__char">
+                <span key={`${tick}-${i}`} className="stat-flip__char text-[#0f4c81]">
                     {ch}
                 </span>
             ))}
@@ -41,11 +41,11 @@ function StatBlock({
 
     return (
         <div className="flex items-center gap-3">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#7CFF6B]/30 bg-[#7CFF6B]/10 text-[#7CFF6B]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#7CFF6B]/30 bg-[#7CFF6B]/10 text-[#0f4c81]">
                 {icon}
             </span>
             <div className="flex flex-col leading-none">
-                <span className="font-body flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                <span className="font-body flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#0f4c81]">
                     {label}
                     <span className="stat-live-dot" aria-hidden="true" />
                 </span>
@@ -133,18 +133,17 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
     ];
 
     const renderStats = () => (
-        <div className="flex items-stretch divide-x divide-white/10">
+        <div className="flex flex-col gap-4">
             {statConfigs.map((stat) => (
-                <div key={stat.key} className="px-5 first:pl-0 last:pr-0">
-                    <StatBlock
-                        icon={stat.icon}
-                        value={stat.value}
-                        unit={stat.unit}
-                        label={stat.label}
-                        active={active}
-                        tick={tick}
-                    />
-                </div>
+                <StatBlock
+                    key={stat.key}
+                    icon={stat.icon}
+                    value={stat.value}
+                    unit={stat.unit}
+                    label={stat.label}
+                    active={active}
+                    tick={tick}
+                />
             ))}
         </div>
     );
@@ -154,25 +153,16 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
             {/* Keeps its layout slot even while the pinned copy is showing,
                 so the hero doesn't jump when the bar detaches. */}
             <div ref={placeholderRef} style={{ visibility: pinned ? "hidden" : "visible" }}>
-                <div className="inline-flex rounded-[3px] border border-white/15 bg-black/30 px-5 py-3 backdrop-blur-md">
-                    {renderStats()}
-                </div>
+                {renderStats()}
             </div>
 
-            {pinned && (
-                <div className="stat-pinned">
-                    <div className="inline-flex rounded-[3px] border border-white/15 bg-black/30 px-5 py-3 backdrop-blur-md">
-                        {renderStats()}
-                    </div>
-                </div>
-            )}
+            {pinned && <div className="stat-pinned">{renderStats()}</div>}
 
             <style jsx>{`
                 .stat-pinned {
                     position: fixed;
                     top: 16px;
-                    left: 50%;
-                    transform: translateX(-50%);
+                    left: 16px;
                     z-index: 60;
                     animation: statPinnedIn 0.3s ease both;
                 }
@@ -180,11 +170,11 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
                 @keyframes statPinnedIn {
                     from {
                         opacity: 0;
-                        transform: translate(-50%, -12px);
+                        transform: translateY(-12px);
                     }
                     to {
                         opacity: 1;
-                        transform: translate(-50%, 0);
+                        transform: translateY(0);
                     }
                 }
 

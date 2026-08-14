@@ -38,7 +38,7 @@ export default function CreativeSlider() {
   return (
     <section className="creative-showcase--slider">
 
-      <div className="fixed top-24 left-2 md:left-40 z-50">
+      <div className="fixed top-24 left-4 z-50">
         <ImpactStats distanceKm={2094513.9886} />
       </div>
 
