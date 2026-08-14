@@ -3,69 +3,86 @@
 import { useEffect, useRef, useState } from "react";
 import { Route, Leaf } from "lucide-react";
 
-const compactFormatter = new Intl.NumberFormat("en-US", {
-    notation: "compact",
-    maximumFractionDigits: 1,
+// Full precision, comma-grouped — no compact ("2.1M") abbreviation.
+const fullFormatter = new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 0,
 });
 
-function StatChip({
+// Renders a value as individual characters, each remounted (and therefore
+// re-animated) whenever `tick` changes — the split-flap "live" effect.
+function FlipText({ text, tick }: { text: string; tick: number }) {
+    return (
+        <span className="stat-flip">
+            {text.split("").map((ch, i) => (
+                <span key={`${tick}-${i}`} className="stat-flip__char">
+                    {ch}
+                </span>
+            ))}
+        </span>
+    );
+}
+
+function StatBlock({
     icon,
     value,
     unit,
     label,
     active,
+    tick,
 }: {
     icon: React.ReactNode;
     value: number;
     unit: string;
     label: string;
     active: boolean;
+    tick: number;
 }) {
-    const display = compactFormatter.format(value);
+    const display = fullFormatter.format(value);
 
     return (
-        <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] py-1.5 pl-2 pr-3 backdrop-blur-sm">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#7CFF6B]">
+        <div className="flex items-center gap-3">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#7CFF6B]/30 bg-[#7CFF6B]/10 text-[#7CFF6B]">
                 {icon}
             </span>
-            <div className="flex items-baseline gap-1">
-                <span
-                    className="font-mono text-[15px] font-bold tabular-nums text-white transition-all duration-500 ease-out"
-                    style={{
-                        opacity: active ? 1 : 0,
-                        transform: active ? "translateY(0)" : "translateY(6px)",
-                    }}
-                >
-                    {display}
+            <div className="flex flex-col leading-none">
+                <span className="font-body flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                    {label}
+                    <span className="stat-live-dot" aria-hidden="true" />
                 </span>
-                <span className="font-mono text-[10px] font-bold tracking-[0.08em] text-white/60">
-                    {unit}
+                <span className="mt-1.5 flex items-baseline gap-1.5">
+                    <span
+                        className="font-mono text-[18px] font-bold tabular-nums text-white transition-opacity duration-500 ease-out"
+                        style={{ opacity: active ? 1 : 0 }}
+                    >
+                        <FlipText text={display} tick={tick} />
+                    </span>
+                    <span className="font-mono text-[10px] font-bold tracking-[0.08em] text-white/50">
+                        {unit}
+                    </span>
                 </span>
             </div>
-            <span className="font-body hidden text-[11px] font-medium uppercase tracking-[0.04em] text-white/45 sm:inline">
-                {label}
-            </span>
         </div>
     );
 }
 
 export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
     const co2PerKm = 40;
-    const dist = distanceKm ?? 0;
+
+    const [dist, setDist] = useState(distanceKm ?? 0);
+    const [tick, setTick] = useState(0);
     const co2SavedKg = (co2PerKm * dist) / 1000;
 
-    const ref = useRef<HTMLDivElement>(null);
+    const placeholderRef = useRef<HTMLDivElement>(null);
     const [active, setActive] = useState(false);
+    const [pinned, setPinned] = useState(false);
 
+    // Reveal once the bar first scrolls into view.
     useEffect(() => {
-        const el = ref.current;
+        const el = placeholderRef.current;
         if (!el) return;
         const io = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setActive(true);
-                    io.disconnect();
-                }
+                if (entry.isIntersecting) setActive(true);
             },
             { threshold: 0.4 }
         );
@@ -73,22 +90,152 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
         return () => io.disconnect();
     }, []);
 
-    return (
-        <div ref={ref} className="flex flex-wrap items-center gap-2">
-            <StatChip
-                icon={<Route className="h-3 w-3" strokeWidth={2.6} />}
-                value={dist}
-                unit="KMs"
-                label="Distance traveled"
-                active={active}
-            />
-            <StatChip
-                icon={<Leaf className="h-3 w-3" strokeWidth={2.6} />}
-                value={co2SavedKg}
-                unit="KG CO₂"
-                label="Emissions saved"
-                active={active}
-            />
+    // Pin to the top of the viewport once its normal spot scrolls above it.
+    useEffect(() => {
+        const el = placeholderRef.current;
+        if (!el) return;
+        const io = new IntersectionObserver(
+            ([entry]) => {
+                setPinned(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+            },
+            { threshold: 0 }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+
+    // Simulate a live feed — nudge the totals forward on an interval so the
+    // display reads as continuously tracking, not a static snapshot.
+    useEffect(() => {
+        if (!active) return;
+        const interval = setInterval(() => {
+            setDist((d) => d + 0.4 + Math.random() * 1.1);
+            setTick((t) => t + 1);
+        }, 2200);
+        return () => clearInterval(interval);
+    }, [active]);
+
+    const statConfigs = [
+        {
+            key: "distance",
+            icon: <Route className="h-3.5 w-3.5" strokeWidth={2.6} />,
+            value: dist,
+            unit: "KM",
+            label: "Distance traveled",
+        },
+        {
+            key: "co2",
+            icon: <Leaf className="h-3.5 w-3.5" strokeWidth={2.6} />,
+            value: co2SavedKg,
+            unit: "KG CO₂",
+            label: "Emissions saved",
+        },
+    ];
+
+    const renderStats = () => (
+        <div className="flex items-stretch divide-x divide-white/10">
+            {statConfigs.map((stat) => (
+                <div key={stat.key} className="px-5 first:pl-0 last:pr-0">
+                    <StatBlock
+                        icon={stat.icon}
+                        value={stat.value}
+                        unit={stat.unit}
+                        label={stat.label}
+                        active={active}
+                        tick={tick}
+                    />
+                </div>
+            ))}
         </div>
+    );
+
+    return (
+        <>
+            {/* Keeps its layout slot even while the pinned copy is showing,
+                so the hero doesn't jump when the bar detaches. */}
+            <div ref={placeholderRef} style={{ visibility: pinned ? "hidden" : "visible" }}>
+                <div className="inline-flex rounded-[3px] border border-white/15 bg-black/30 px-5 py-3 backdrop-blur-md">
+                    {renderStats()}
+                </div>
+            </div>
+
+            {pinned && (
+                <div className="stat-pinned-bar">
+                    <div className="mx-auto flex max-w-6xl justify-center px-4 py-2.5">
+                        {renderStats()}
+                    </div>
+                </div>
+            )}
+
+            <style jsx>{`
+                .stat-pinned-bar {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 60;
+                    background: rgba(8, 8, 8, 0.82);
+                    backdrop-filter: blur(10px);
+                    border-bottom: 1px solid rgba(124, 255, 107, 0.18);
+                    animation: statPinnedIn 0.3s ease both;
+                }
+
+                @keyframes statPinnedIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-100%);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                :global(.stat-flip) {
+                    display: inline-flex;
+                    overflow: hidden;
+                }
+
+                :global(.stat-flip__char) {
+                    display: inline-block;
+                    transform-origin: 50% 100%;
+                    animation: statFlipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+                }
+
+                @keyframes statFlipIn {
+                    0% {
+                        opacity: 0;
+                        transform: rotateX(70deg) translateY(-35%);
+                    }
+                    60% {
+                        opacity: 1;
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: rotateX(0deg) translateY(0);
+                    }
+                }
+
+                :global(.stat-live-dot) {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 9999px;
+                    background: #7cff6b;
+                    animation: statLivePulse 1.8s ease-out infinite;
+                }
+
+                @keyframes statLivePulse {
+                    0% {
+                        box-shadow: 0 0 0 0 rgba(124, 255, 107, 0.55);
+                    }
+                    70% {
+                        box-shadow: 0 0 0 6px rgba(124, 255, 107, 0);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 0 rgba(124, 255, 107, 0);
+                    }
+                }
+            `}</style>
+        </>
     );
 }

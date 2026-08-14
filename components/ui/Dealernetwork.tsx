@@ -245,7 +245,8 @@ export default function DealerNetwork() {
                   className="h-[6px] w-[6px] rounded-full"
                   style={{ backgroundColor: regionColor(dealer.region) }}
                 />
-                {dealer.region} · {dealer.district}
+                {/* {dealer.region} · {dealer.district} */}
+                {dealer.name}
               </p>
               <h3 className="font-display mt-2 text-[19px] font-black uppercase italic tracking-tight text-[#0b0b0c]">
                 {dealer.dealer_name}
@@ -258,9 +259,6 @@ export default function DealerNetwork() {
               </p>
               <p className="font-body mt-1 text-[13px] text-[#6b6b70]">
                 {dealer.hours}
-              </p>
-              <p className="font-body bold mt-1 text-[13px] text-[#000]">
-                {dealer.name}
               </p>
             </div>
 

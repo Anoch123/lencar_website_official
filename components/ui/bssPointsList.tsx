@@ -74,6 +74,15 @@ export default function BSSPointsList({
     });
   }, [activeRegion, activeDistrict]);
 
+  // Once a nearest point is known, pin it to the front of the grid without
+  // otherwise reordering the rest of the list.
+  const sortedPoints = useMemo(() => {
+    if (locationStatus !== "granted" || !nearestId) return filteredPoints;
+    const nearest = filteredPoints.find((p) => p.id === nearestId);
+    if (!nearest) return filteredPoints;
+    return [nearest, ...filteredPoints.filter((p) => p.id !== nearestId)];
+  }, [filteredPoints, nearestId, locationStatus]);
+
   function findNearest() {
     if (!("geolocation" in navigator)) {
       setLocationStatus("unsupported");
@@ -131,8 +140,9 @@ export default function BSSPointsList({
         {/* Locate control */}
         <div className="flex items-center gap-3">
           {locationStatus === "granted" && nearestKm !== null && (
-            <span className="font-body text-[11px] uppercase tracking-[0.1em] text-[#0F4C81]">
-              Nearest is {nearestKm < 1 ? `${Math.round(nearestKm * 1000)} m` : `${nearestKm.toFixed(1)} km`} away
+            <span className="font-body inline-flex items-center gap-1.5 bg-[#0F4C81] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-white">
+              <span aria-hidden="true">⌖</span>
+              Nearest {nearestKm < 1 ? `${Math.round(nearestKm * 1000)} m` : `${nearestKm.toFixed(1)} km`} away
             </span>
           )}
           {locationStatus === "denied" && (
@@ -221,7 +231,7 @@ export default function BSSPointsList({
 
       {/* BSS point grid */}
       <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden sm:grid-cols-2 lg:grid-cols-3">
-        {filteredPoints.map((point, i) => {
+        {sortedPoints.map((point, i) => {
           const active = point.id === selectedId;
           const isNearest = point.id === nearestId && locationStatus === "granted";
           return (
@@ -230,11 +240,15 @@ export default function BSSPointsList({
               type="button"
               onClick={() => onSelect?.(point.id)}
               aria-pressed={active}
-              className={`group relative flex flex-col justify-between p-6 pt-10 text-left transition-colors ${
-                active ? "bg-[#0F4C81]/[0.04]" : "bg-white hover:bg-[#fafaf9]"
+              className={`group relative z-0 flex flex-col justify-between p-6 pt-10 text-left transition-all ${
+                isNearest
+                  ? "z-10 bg-[#0F4C81] text-white ring-4 ring-[#0F4C81]/25"
+                  : active
+                    ? "bg-[#0F4C81]/[0.04]"
+                    : "bg-white hover:bg-[#fafaf9]"
               }`}
             >
-              {active && (
+              {active && !isNearest && (
                 <span
                   aria-hidden="true"
                   className="absolute inset-y-0 left-0 w-[3px] bg-[#0F4C81]"
@@ -244,44 +258,67 @@ export default function BSSPointsList({
               <span
                 aria-hidden="true"
                 className={`font-display pointer-events-none absolute left-5 top-2 select-none text-[46px] font-black italic leading-none transition-colors ${
-                  active ? "text-[#0F4C81]/[0.12]" : "text-[#0b0b0c]/[0.05] group-hover:text-[#0b0b0c]/[0.08]"
+                  isNearest
+                    ? "text-white/15"
+                    : active
+                      ? "text-[#0F4C81]/[0.12]"
+                      : "text-[#0b0b0c]/[0.05] group-hover:text-[#0b0b0c]/[0.08]"
                 }`}
               >
                 {pad(i + 1)}
               </span>
 
               {isNearest && (
-                <span className="font-body absolute right-5 top-4 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#0F4C81]">
+                <span className="font-body absolute right-5 top-4 inline-flex items-center gap-1.5 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#0F4C81]">
+                  <span aria-hidden="true">⌖</span>
                   Nearest to you
                 </span>
               )}
 
               <div className="relative">
-                <p className="font-body flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b6b70]">
+                <p
+                  className={`font-body flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] ${
+                    isNearest ? "text-white/70" : "text-[#6b6b70]"
+                  }`}
+                >
                   <span
                     aria-hidden="true"
                     className="h-[6px] w-[6px] rounded-full"
-                    style={{ backgroundColor: regionColor(point.region) }}
+                    style={{ backgroundColor: isNearest ? "#ffffff" : regionColor(point.region) }}
                   />
                   {point.region} · {point.district}
                 </p>
-                <h3 className="font-display mt-2 text-[19px] font-black uppercase italic tracking-tight text-[#0b0b0c]">
+                <h3
+                  className={`font-display mt-2 text-[19px] font-black uppercase italic tracking-tight ${
+                    isNearest ? "text-white" : "text-[#0b0b0c]"
+                  }`}
+                >
                   {point.name}
                 </h3>
-                <p className="font-body mt-3 text-[14px] leading-relaxed text-[#4a4a4d]">
+                <p
+                  className={`font-body mt-3 text-[14px] leading-relaxed ${
+                    isNearest ? "text-white/90" : "text-[#4a4a4d]"
+                  }`}
+                >
                   {point.address}
                 </p>
-                <p className="font-body mt-1 text-[13px] text-[#6b6b70]">
+                <p
+                  className={`font-body mt-1 text-[13px] ${isNearest ? "text-white/70" : "text-[#6b6b70]"}`}
+                >
                   {point.hours}
                 </p>
                 {isNearest && nearestKm !== null && (
-                  <p className="font-body mt-1 text-[13px] font-semibold text-[#0F4C81]">
+                  <p className="font-body mt-2 inline-block bg-white/15 px-2 py-1 text-[13px] font-bold text-white">
                     {nearestKm < 1 ? `${Math.round(nearestKm * 1000)} m away` : `${nearestKm.toFixed(1)} km away`}
                   </p>
                 )}
               </div>
 
-              <div className="relative mt-6 flex items-center gap-5 border-t border-[#e5e5e5] pt-5">
+              <div
+                className={`relative mt-6 flex items-center gap-5 border-t pt-5 ${
+                  isNearest ? "border-white/20" : "border-[#e5e5e5]"
+                }`}
+              >
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                     point.mapsQuery
@@ -289,7 +326,9 @@ export default function BSSPointsList({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="font-body inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.04em] text-[#0b0b0c] transition-colors hover:text-[#0F4C81]"
+                  className={`font-body inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.04em] transition-colors ${
+                    isNearest ? "text-white hover:text-white/80" : "text-[#0b0b0c] hover:text-[#0F4C81]"
+                  }`}
                 >
                   Get directions
                   <span aria-hidden="true">→</span>
