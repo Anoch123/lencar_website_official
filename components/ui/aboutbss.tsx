@@ -71,9 +71,9 @@ export default function Aboutbss() {
         {/* -------------------------------------------------------------- */}
         {/* Image + steps                                                  */}
         {/* -------------------------------------------------------------- */}
-        <div className="mt-14 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
+        <div className="mt-14 grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:items-center lg:gap-14">
           {/* Cabinet image with live-status badges */}
-          <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-full sm:max-w-sm lg:max-w-none">
             <div className="relative overflow-hidden rounded-[28px] border border-black/[0.06] bg-white p-4 shadow-[0_1px_2px_rgba(16,35,26,0.04)] sm:p-6 lg:p-8">
               <div className="relative aspect-square w-full min-h-[320px] sm:min-h-[450px] lg:min-h-[600px]">
                 <Image
@@ -88,7 +88,7 @@ export default function Aboutbss() {
             </div>
 
             {/* floating status badge — top right */}
-            <div className="absolute -right-3 top-8 flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-[0_4px_16px_rgba(16,35,26,0.10)] sm:-right-6">
+            <div className="absolute right-1 top-8 flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-[0_4px_16px_rgba(16,35,26,0.10)] sm:-right-6">
               <span className="badge-pulse h-2 w-2 shrink-0 rounded-full bg-[#2fa84b]" />
               <span className="font-body text-[12px] font-semibold text-[#10231a]">
                 Slot 04
@@ -99,7 +99,7 @@ export default function Aboutbss() {
             </div>
 
             {/* floating status badge — bottom left */}
-            <div className="absolute -left-3 bottom-10 flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-[0_4px_16px_rgba(16,35,26,0.10)] sm:-left-6">
+            <div className="absolute left-1 bottom-10 flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-[0_4px_16px_rgba(16,35,26,0.10)] sm:-left-6">
               <BatteryCharging size={14} className="text-[#f5a623]" />
               <span className="font-body text-[12px] font-semibold text-[#10231a]">
                 9 of 12
@@ -131,7 +131,7 @@ export default function Aboutbss() {
                     />
 
                     <div
-                      className={`relative ml-14 max-w-md rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_3px_rgba(16,35,26,0.05)] transition-all duration-300 hover:border-[#2fa84b]/50 hover:shadow-[0_6px_20px_rgba(16,35,26,0.08)] sm:ml-0 ${
+                      className={`relative ml-14 max-w-lg rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_3px_rgba(16,35,26,0.05)] transition-all duration-300 hover:border-[#2fa84b]/50 hover:shadow-[0_6px_20px_rgba(16,35,26,0.08)] sm:ml-0 ${
                         isLeft
                           ? "sm:mr-auto sm:pr-8 sm:text-left sm:w-[calc(50%-2.5rem)]"
                           : "sm:ml-auto sm:pl-8 sm:text-left sm:w-[calc(50%-2.5rem)]"
