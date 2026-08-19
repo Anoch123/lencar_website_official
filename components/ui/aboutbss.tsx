@@ -115,7 +115,7 @@ export default function Aboutbss() {
             {/* central vertical line */}
             <div
               aria-hidden
-              className="absolute left-6 top-3 bottom-3 w-[3px] rounded-full bg-[#2fa84b] sm:left-1/2 sm:-translate-x-1/2"
+              className="absolute left-6 top-3 bottom-3 hidden w-[3px] rounded-full bg-[#2fa84b] sm:block sm:left-1/2 sm:-translate-x-1/2"
             />
 
             <ol className="flex flex-col gap-10 sm:gap-14">
@@ -127,11 +127,11 @@ export default function Aboutbss() {
                     {/* dot on the line */}
                     <span
                       aria-hidden
-                      className="absolute left-6 top-1 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-white bg-[#2fa84b] shadow-[0_2px_8px_rgba(47,168,75,0.45)] sm:left-1/2"
+                      className="absolute left-6 top-1 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-white bg-[#2fa84b] shadow-[0_2px_8px_rgba(47,168,75,0.45)] sm:block sm:left-1/2"
                     />
 
                     <div
-                      className={`relative ml-14 max-w-lg rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_3px_rgba(16,35,26,0.05)] transition-all duration-300 hover:border-[#2fa84b]/50 hover:shadow-[0_6px_20px_rgba(16,35,26,0.08)] sm:ml-0 ${
+                      className={`relative ml-0 max-w-lg rounded-2xl border border-black/[0.06] bg-white p-6 shadow-[0_1px_3px_rgba(16,35,26,0.05)] transition-all duration-300 hover:border-[#2fa84b]/50 hover:shadow-[0_6px_20px_rgba(16,35,26,0.08)] ${
                         isLeft
                           ? "sm:mr-auto sm:pr-8 sm:text-left sm:w-[calc(50%-2.5rem)]"
                           : "sm:ml-auto sm:pl-8 sm:text-left sm:w-[calc(50%-2.5rem)]"
