@@ -28,6 +28,7 @@ const FEATURES = [
     description:
       "No more waiting for hours to recharge. Simply swap your battery at a Lencar Battery Swapping Station and get back on the road in just a few minutes.",
     popupType: "video",
+    cta: "Watch demo",
   },
   {
     id: "swapping-network",
@@ -36,6 +37,7 @@ const FEATURES = [
     description:
       "A growing network of Battery Swapping Stations across Sri Lanka. Find the nearest one and get moving in minutes.",
     popupType: "network",
+    cta: "Find a station",
   },
   {
     id: "powertrain",
@@ -44,6 +46,7 @@ const FEATURES = [
     description:
       "A 5-year warranty covers the powertrain. Built for durability, backed by reliable support, and designed for long-term peace of mind.",
     href: "/about-us",
+    cta: "Learn more",
   },
   {
     id: "smart-app",
@@ -52,6 +55,7 @@ const FEATURES = [
     description:
       "Stay connected to your scooter anytime. Check battery level, track rides, find nearby battery swap stations, and manage your scooter — all from the Lencar app.",
     href: "/lencar-app",
+    cta: "Explore the app",
   },
 ];
 
@@ -329,19 +333,32 @@ function FeatureCard({ feature, onOpen }) {
         <Icon size={20} strokeWidth={2} />
       </div>
 
-      <div className="min-w-0">
-        <h3 className="font-body text-[17px] font-semibold text-[#01e044]">
-          {feature.title}
-        </h3>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="font-body text-[17px] font-semibold text-[#01e044]">
+            {feature.title}
+          </h3>
+          {/* clickable affordance — always visible, animates on hover/focus */}
+          <span
+            aria-hidden
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.1] text-[#c7c7cc] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:border-[#01e044]/50 group-hover:bg-[#01e044]/10 group-hover:text-[#01e044] group-focus-visible:border-[#01e044]/50 group-focus-visible:text-[#01e044]"
+          >
+            <ArrowUpRight size={15} strokeWidth={2.5} />
+          </span>
+        </div>
         <p className="font-body mt-1.5 text-[14px] leading-relaxed text-[#a3a3a8]">
           {feature.description}
         </p>
+        {/* explicit call-to-action label so the card reads as actionable, not just informational */}
+        <span className="font-body mt-3 inline-flex items-center gap-1 text-[12.5px] font-semibold uppercase tracking-[0.08em] text-[#6b6b70] transition-colors duration-300 group-hover:text-[#01e044]">
+          {feature.cta}
+        </span>
       </div>
     </div>
   );
 
   const className =
-    "group relative rounded-2xl border border-white/[0.06] bg-[#141416] p-6 text-left transition-colors duration-300 hover:border-[#01e044]/40 hover:bg-[#17171a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044] sm:pl-8";
+    "group relative cursor-pointer rounded-2xl border border-white/[0.06] bg-[#141416] p-6 text-left transition-colors duration-300 hover:border-[#01e044]/40 hover:bg-[#17171a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01e044] sm:pl-8";
 
   if (feature.href) {
     return (

@@ -1,5 +1,5 @@
 export const SPECS = [
-  { label: "Range", value: "90+ km" },
+  { label: "Range", value: "80+ km" },
   { label: "Top speed", value: "65 km/h" },
   { label: "Motor Power", value: "1.5kw" },
   { label: "Battery", value: "2kWh Lithium Ion Phosphate" },

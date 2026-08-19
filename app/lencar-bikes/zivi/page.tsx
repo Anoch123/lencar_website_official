@@ -84,7 +84,7 @@ export default function LencarZivi() {
               Zivi
             </h1>
             <p className="font-body mt-6 max-w-md text-[16px] leading-relaxed text-[#4a4a4d]">
-              The premium electric scooter built for riders who need greater efficiency and longer-distance travel. With a range of up to 90 km, the Zivi combines stylish design with modern technology. It also features Lencar's battery-swapping system, enabling seamless battery replacement for uninterrupted mobility.
+              The premium electric scooter built for riders who need greater efficiency and longer-distance travel. With a range of up to 80+ km, the Zivi combines stylish design with modern technology. It also features Lencar's battery-swapping system, enabling seamless battery replacement for uninterrupted mobility.
             </p>
 
             {/* Color selector */}

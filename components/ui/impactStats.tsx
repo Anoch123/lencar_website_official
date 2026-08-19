@@ -14,7 +14,7 @@ function FlipText({ text, tick }: { text: string; tick: number }) {
     return (
         <span className="stat-flip">
             {text.split("").map((ch, i) => (
-                <span key={`${tick}-${i}`} className="stat-flip__char text-[#0f4c81]">
+                <span key={`${tick}-${i}`} className="stat-flip__char text-[#01e044]">
                     {ch}
                 </span>
             ))}
@@ -41,11 +41,11 @@ function StatBlock({
 
     return (
         <div className="flex items-center gap-3">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#7CFF6B]/30 bg-[#7CFF6B]/10 text-[#0f4c81]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#7CFF6B]/30 bg-[#7CFF6B]/10 text-[#01e044]">
                 {icon}
             </span>
             <div className="flex flex-col leading-none">
-                <span className="font-body flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#0f4c81]">
+                <span className="font-body flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#01e044]">
                     {label}
                     <span className="stat-live-dot" aria-hidden="true" />
                 </span>
@@ -56,7 +56,7 @@ function StatBlock({
                     >
                         <FlipText text={display} tick={tick} />
                     </span>
-                    <span className="font-mono text-[10px] font-bold tracking-[0.08em] text-white/50">
+                    <span className="font-mono text-[10px] font-bold tracking-[0.08em] text-[#01e044]">
                         {unit}
                     </span>
                 </span>
