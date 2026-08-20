@@ -72,7 +72,7 @@ export default function Aboutbss() {
         {/* Image + steps                                                  */}
         {/* -------------------------------------------------------------- */}
         {/* grid gap-12 lg:grid-cols-[0.65fr_1.35fr] */}
-        <div className="mt-14 grid lg:grid-cols-[0.65fr_1.35fr] grid-cols-1 gap-12 rounded-2xl sm:gap-0">
+        <div className="mt-14 grid lg:grid-cols-[0.65fr_1.35fr] grid-cols-1 gap-8 lg:gap-16 rounded-2xl">
           {/* Cabinet image with live-status badges */}
           <div className="relative mx-auto w-full max-w-full sm:max-w-sm lg:max-w-none">
             <div className="relative overflow-hidden rounded-[28px] border border-black/[0.06] bg-white p-4 shadow-[0_1px_2px_rgba(16,35,26,0.04)] sm:p-6 lg:p-8">
