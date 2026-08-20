@@ -16,7 +16,7 @@ export const BIKES = [
     tagline: "Light, agile, built for tight city streets.",
     image: "/images/zivi.png",
     specs: [
-      { label: "Range", value: "100+ km" },
+      { label: "Range", value: "80+ km" },
       { label: "Top speed", value: "65 km/h" },
     ],
     price: '469,900.00',
