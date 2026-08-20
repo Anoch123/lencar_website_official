@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Route, Leaf } from "lucide-react";
+import { useScooterDistance } from "@/hooks/useScooterDistance";
 
 // Full precision, comma-grouped — no compact ("2.1M") abbreviation.
 const fullFormatter = new Intl.NumberFormat("en-US", {
@@ -10,11 +11,11 @@ const fullFormatter = new Intl.NumberFormat("en-US", {
 
 // Renders a value as individual characters, each remounted (and therefore
 // re-animated) whenever `tick` changes — the split-flap "live" effect.
-function FlipText({ text, tick }: { text: string; tick: number }) {
+function FlipText({ text, distance }: { text: string; distance: number }) {
     return (
         <span className="stat-flip">
             {text.split("").map((ch, i) => (
-                <span key={`${tick}-${i}`} className="stat-flip__char text-[#01e044]">
+                <span key={`${distance.toFixed(1)}-${i}`} className="stat-flip__char text-[#01e044]">
                     {ch}
                 </span>
             ))}
@@ -28,14 +29,14 @@ function StatBlock({
     unit,
     label,
     active,
-    tick,
+    distance,
 }: {
     icon: React.ReactNode;
     value: number;
     unit: string;
     label: string;
     active: boolean;
-    tick: number;
+    distance: number;
 }) {
     const display = fullFormatter.format(value);
 
@@ -54,7 +55,7 @@ function StatBlock({
                         className="font-mono text-[18px] font-bold tabular-nums text-white transition-opacity duration-500 ease-out"
                         style={{ opacity: active ? 1 : 0 }}
                     >
-                        <FlipText text={display} tick={tick} />
+                        <FlipText text={display} distance={distance} />
                     </span>
                     <span className="font-mono text-[10px] font-bold tracking-[0.08em] text-[#01e044]">
                         {unit}
@@ -68,12 +69,10 @@ function StatBlock({
 export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
     const co2PerKm = 40;
 
-    const [dist, setDist] = useState(distanceKm ?? 0);
-    const [tick, setTick] = useState(0);
-    const co2SavedKg = (co2PerKm * dist) / 1000;
+    const { distance, active, setActive } = useScooterDistance(distanceKm);
+    const co2SavedKg = (co2PerKm * distance) / 1000;
 
     const placeholderRef = useRef<HTMLDivElement>(null);
-    const [active, setActive] = useState(false);
     const [pinned, setPinned] = useState(false);
 
     // Reveal once the bar first scrolls into view.
@@ -88,7 +87,7 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
         );
         io.observe(el);
         return () => io.disconnect();
-    }, []);
+    }, [setActive]);
 
     // Pin to the top of the viewport once its normal spot scrolls above it.
     useEffect(() => {
@@ -104,22 +103,11 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
         return () => io.disconnect();
     }, []);
 
-    // Simulate a live feed — nudge the totals forward on an interval so the
-    // display reads as continuously tracking, not a static snapshot.
-    useEffect(() => {
-        if (!active) return;
-        const interval = setInterval(() => {
-            setDist((d) => d + 0.4 + Math.random() * 1.1);
-            setTick((t) => t + 1);
-        }, 2200);
-        return () => clearInterval(interval);
-    }, [active]);
-
     const statConfigs = [
         {
             key: "distance",
             icon: <Route className="h-3.5 w-3.5" strokeWidth={2.6} />,
-            value: dist,
+            value: distance,
             unit: "KM",
             label: "Distance traveled",
         },
@@ -142,7 +130,7 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
                     unit={stat.unit}
                     label={stat.label}
                     active={active}
-                    tick={tick}
+                    distance={distance}
                 />
             ))}
         </div>

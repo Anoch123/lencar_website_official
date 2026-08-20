@@ -317,7 +317,7 @@ export default function BookTestRideModal({
                   {validationErrors.phone ? (
                     <p className="mt-1 text-[12px] text-[#c90512]">{validationErrors.phone}</p>
                   ) : null}
-                  <p className="mt-1 text-[12px] text-[#FF0000]/50">please enter whatsapp number</p>
+                  {/* <p className="mt-1 text-[12px] text-[#FF0000]/50">please enter whatsapp number</p> */}
                 </div>
               </div>
 
