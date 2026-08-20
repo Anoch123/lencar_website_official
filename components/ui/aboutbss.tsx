@@ -98,17 +98,6 @@ export default function Aboutbss() {
                 available
               </span>
             </div>
-
-            {/* floating status badge — bottom left */}
-            <div className="absolute left-1 bottom-10 flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-3.5 py-2 shadow-[0_4px_16px_rgba(16,35,26,0.10)] sm:-left-6">
-              <BatteryCharging size={14} className="text-[#f5a623]" />
-              <span className="font-body text-[12px] font-semibold text-[#10231a]">
-                9 of 12
-              </span>
-              <span className="font-body text-[12px] text-[#5b6b60]">
-                fully charged
-              </span>
-            </div>
           </div>
 
           {/* Steps — vertical timeline, alternating left/right */}

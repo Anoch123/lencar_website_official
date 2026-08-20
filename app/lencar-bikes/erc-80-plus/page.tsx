@@ -54,22 +54,23 @@ export default function LencarERC80Plus() {
             </div>
 
             {/* Thumbnail gallery */}
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 grid grid-cols-4 gap-3">
               {THUMBNAILS.map((thumb, i) => (
                 <button
                   key={thumb + i}
                   onClick={() => setActiveImage(thumb)}
                   aria-label={`View image ${i + 1}`}
-                  className={`relative aspect-[4/3] w-20 flex-shrink-0 overflow-hidden bg-[#0b0b0c] transition-all sm:w-24 ${activeImage === thumb
+                  className={`relative aspect-[4/3] w-full overflow-hidden bg-[#0b0b0c] transition-all ${
+                    activeImage === thumb
                       ? "ring-2 ring-[#0F4C81] ring-offset-2"
                       : "opacity-70 hover:opacity-100"
-                    }`}
+                  }`}
                 >
                   <Image
                     src={thumb}
                     alt={`eRc 80 Plus thumbnail ${i + 1}`}
                     fill
-                    sizes="(max-width: 639px) 80px, 96px"
+                    sizes="(max-width: 1023px) 25vw, 12vw"
                     className="object-cover"
                   />
                 </button>
