@@ -1,9 +1,9 @@
 export const BIKES = [
   {
-    name: "eRc 80+",
+    name: "eRc 80",
     slug: "erc-80-plus",
     tagline: "More range, more power, same footprint.",
-    image: "/images/lencar_bike.png",
+    image: "/images/erc_bike/1.png",
     specs: [
       { label: "Range", value: "70 km" },
       { label: "Top speed", value: "60 km/h" },
@@ -14,7 +14,7 @@ export const BIKES = [
     name: "Zivi",
     slug: "zivi",
     tagline: "Light, agile, built for tight city streets.",
-    image: "/images/zivi.png",
+    image: "/images/zivi_bike/img1.png",
     specs: [
       { label: "Range", value: "80+ km" },
       { label: "Top speed", value: "65 km/h" },

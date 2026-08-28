@@ -153,7 +153,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
                       <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
-                        Full name <span className="text-[#0f4c81]">*</span>
+                        Full name <span className="text-[#c90512]">*</span>
                       </label>
                       <input
                         value={formData.fullName}
@@ -169,13 +169,13 @@ export default function ContactPage() {
                           }`}
                       />
                       {validationErrors.fullName ? (
-                        <p className="mt-1 text-[12px] text-[#0f4c81]">{validationErrors.fullName}</p>
+                        <p className="mt-1 text-[12px] text-[#c90512]">{validationErrors.fullName}</p>
                       ) : null}
                     </div>
 
                     <div>
                       <label className="font-body text-[11px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/60 sm:text-[12px]">
-                        Email <span className="text-[#0f4c81]">*</span>
+                        Email <span className="text-[#c90512]">*</span>
                       </label>
                       <input
                         type="email"
@@ -185,7 +185,7 @@ export default function ContactPage() {
                         className={`mt-1 w-full rounded-xl border bg-white px-4 py-2 text-[15px] text-[#0b0b0c] outline-none transition-colors focus:border-[#0f4c81] sm:mt-1.5 sm:py-2.5 ${validationErrors.email ? "border-[#0f4c81]" : "border-[#0b0b0c]/15"}`}
                       />
                       {validationErrors.email ? (
-                        <p className="mt-1 text-[12px] text-[#0f4c81]">{validationErrors.email}</p>
+                        <p className="mt-1 text-[12px] text-[#c90512]">{validationErrors.email}</p>
                       ) : null}
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export default function ContactPage() {
                     </div>
 
                     {validationErrors.subject ? (
-                      <p className="mt-1 text-[12px] text-[#0f4c81]">
+                      <p className="mt-1 text-[12px] text-[#c90512]">
                         {validationErrors.subject}
                       </p>
                     ) : null}
@@ -235,7 +235,7 @@ export default function ContactPage() {
                       htmlFor="message"
                       className="font-body text-[12px] font-bold uppercase tracking-[0.1em] text-[#0b0b0c]/50"
                     >
-                      Message <span className="text-[#0f4c81]">*</span>
+                      Message <span className="text-[#c90512]">*</span>
                     </label>
 
                     <textarea
@@ -247,7 +247,7 @@ export default function ContactPage() {
                     />
 
                     {validationErrors.message ? (
-                      <p className="mt-1 text-[12px] text-[#0f4c81]">{validationErrors.message}</p>
+                      <p className="mt-1 text-[12px] text-[#c90512]">{validationErrors.message}</p>
                     ) : null}
                   </div>
 

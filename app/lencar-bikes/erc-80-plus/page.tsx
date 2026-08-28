@@ -7,10 +7,10 @@ import BookTestRideModal from "@/components/ui/BookTestRideModal";
 import { FULL_SPECS, HIGHLIGHTS, SPECS } from "@/lib/constants/lencar_erceighty";
 
 const THUMBNAILS = [
-  "/images/erc_bike/img1.jpg",
-  "/images/erc_bike/img2.jpg",
-  "/images/erc_bike/img3.jpg",
-  "/images/erc_bike/img4.jpg",
+  "/images/erc_bike/1.png",
+  "/images/erc_bike/2.png",
+  "/images/erc_bike/3.png",
+  "/images/erc_bike/4.png",
 ];
 
 const COLORS = [
@@ -83,7 +83,7 @@ export default function LencarERC80Plus() {
               The enhanced everyday city commuter.
             </p>
             <h1 className="font-display mt-4 text-[44px] font-black italic uppercase leading-[0.98] tracking-tight text-[#0b0b0c] sm:text-[56px]">
-              eRc 80<span className="text-[#0F4C81]">+</span>
+              eRc 80
             </h1>
             <p className="font-body mt-6 max-w-md text-[16px] leading-relaxed text-[#4a4a4d]">
               A smart electric scooter designed for daily commuting and city travel.
@@ -150,13 +150,13 @@ export default function LencarERC80Plus() {
           </div>
         </section>
 
-        <BookTestRideModal isOpen={open} onClose={() => setOpen(false)} bikeName="eRc 80+" />
+        <BookTestRideModal isOpen={open} onClose={() => setOpen(false)} bikeName="eRc 80" />
 
         {/* Highlights */}
         <section className="border-t border-[#e5e5e5] bg-[#fafafa]">
           <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
             <h2 className="font-display max-w-xl text-[26px] font-black uppercase italic leading-[1.1] tracking-tight text-[#0b0b0c] sm:text-[32px]">
-              Why riders choose the eRc 80+
+              Why riders choose the eRc 80
             </h2>
             <ul className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               {HIGHLIGHTS.map((item) => (

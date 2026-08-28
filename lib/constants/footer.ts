@@ -21,7 +21,7 @@ export const LINK_GROUPS: LinkGroup[] = [
   {
     heading: "Our Products",
     links: [
-      { label: "eRc 80+ - eScooter", href: "/lencar-bikes/erc-80-plus" },
+      { label: "eRc 80 - eScooter", href: "/lencar-bikes/erc-80-plus" },
       { label: "Zivi", href: "/lencar-bikes/zivi" },
     ],
   },
