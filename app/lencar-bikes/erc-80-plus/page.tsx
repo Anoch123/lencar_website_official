@@ -14,10 +14,10 @@ const THUMBNAILS = [
 ];
 
 const COLORS = [
-  { name: "Blue", hex: "#1919cf" },
-  { name: "Green", hex: "#15a728" },
-  { name: "Pink", hex: "#b41399" },
-  { name: "yellow", hex: "#b1d123" },
+  { name: "White", hex: "#ffffff" },
+  { name: "Grey", hex: "#454846" },
+  { name: "Red", hex: "#b41313" },
+  { name: "Blue", hex: "#1c0aa6" },
 ];
 
 export default function LencarERC80Plus() {
