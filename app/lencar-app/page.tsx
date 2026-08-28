@@ -19,7 +19,7 @@ export default function LencarApp() {
           description="Take full control of your Lencar electric scooter with the Lencar Mobile App."
           imageSrc="/images/lencar_app.png"
           ctas={[
-            { label: "Download User Manual", href: "./my-lencar", variant: "primary" },
+            { label: "Download User Manual", href: "/pdfs/ezr-app-user-manual.pdf", variant: "primary" },
             ]}
         />
             <main className="bg-white text-[#0b0b0c]">

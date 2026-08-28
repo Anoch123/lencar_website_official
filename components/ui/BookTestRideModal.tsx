@@ -23,7 +23,7 @@ type BookTestRideModalProps = {
 };
 
 const DEFAULT_BIKES: BikeOption[] = [
-  { name: "eRc 80+", slug: "erc-80-plus" },
+  { name: "eRc 80", slug: "erc-80-plus" },
   { name: "Zivi", slug: "zivi" },
 ];
 

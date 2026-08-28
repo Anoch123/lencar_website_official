@@ -26,7 +26,7 @@ const slides = [
     background: "/images/img2.png",
     video: "",
     dark: true,
-    heading: "LENCAR ERC.80+",
+    heading: "LENCAR ERC.80",
     description: "The Lencar eRC 80 is a smart electric scooter designed for daily commuting and city travel.",
     ctaPrimary: { label: "Learn More", href: "/lencar-bikes/erc-80-plus" },
   },

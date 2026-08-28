@@ -104,7 +104,7 @@ export default function LencarERC80Plus() {
                     onClick={() => setActiveColor(color)}
                     aria-label={color.name}
                     aria-pressed={activeColor.name === color.name}
-                    className={`h-8 w-8 flex-shrink-0 rounded-full border transition-all ${color.hex === "#f5f5f4" ? "border-[#e5e5e5]" : "border-transparent"}`}
+                    className={`h-8 w-8 flex-shrink-0 rounded-full border transition-all ${color.hex === "#ffffff" ? "border-[#000]" : "border-transparent"}`}
                     style={{ backgroundColor: color.hex }}
                   />
                 ))}
