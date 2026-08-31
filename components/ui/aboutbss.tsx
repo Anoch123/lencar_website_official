@@ -41,9 +41,9 @@ const STEPS: Step[] = [
 ];
 
 const STATS = [
-  { icon: Clock3, value: "< 30 sec", label: "average swap time" },
-  { icon: BatteryCharging, value: "100%", label: "charged, every time" },
-  { icon: ShieldCheck, value: "24/7", label: "self-serve access" },
+  { icon: Clock3, value: "< 30 sec", label: "Average swap time" },
+  { icon: BatteryCharging, value: "100%", label: "Charged, every time" },
+  { icon: ShieldCheck, value: "24/7", label: "Self-serve access" },
 ];
 
 export default function Aboutbss() {
