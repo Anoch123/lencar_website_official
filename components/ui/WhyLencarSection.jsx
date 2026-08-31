@@ -127,12 +127,12 @@ function Modal({ isOpen, onClose, heading, children }) {
 function BatterySwapVideoContent() {
   return (
     <div className="overflow-hidden rounded-2xl bg-black">
-      <video
+      <iframe
         className="aspect-video w-full"
-        src="/videos/battery-swap-demo.mp4"
-        poster="/images/why_choose_us.png"
-        controls
-        playsInline
+        src="https://www.youtube.com/embed/moli8o--Lmc"
+        title="YouTube video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
       />
     </div>
   );
