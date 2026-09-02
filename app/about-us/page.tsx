@@ -15,13 +15,19 @@ export default function AboutUsPage() {
       {/* Hero sits outside any constrained wrapper so its own full-bleed logic works cleanly */}
       <AllPageHero
         eyebrow="About Lencar"
-        heading={[
-          "Developed Globally, Perfected Locally.",
-        ]}
+        heading={["Developed Globally, Perfected Locally."]}
         description="At Lencar, we believe in a cleaner and greener future.Our innovative battery-swapping technology makes every ride more convenient, efficient, and sustainable."
         ctas={[
-          { label: "Explore My lencar", href: "./my-lencar", variant: "primary" },
-          { label: "Book a test ride", onClick: () => setBookOpen(true), variant: "outline" },
+          {
+            label: "Explore My lencar",
+            href: "./my-lencar",
+            variant: "primary",
+          },
+          {
+            label: "Book a test ride",
+            onClick: () => setBookOpen(true),
+            variant: "outline",
+          },
         ]}
         imageSrc="/images/Aboutus.png"
       />
@@ -35,10 +41,14 @@ export default function AboutUsPage() {
               Our story
             </p>
             <h2 className="font-display mt-4 text-[32px] font-black uppercase italic leading-[1.05] tracking-tight text-[#0b0b0c] sm:text-[40px] lg:text-[48px]">
-              Futureproof e-mobility
+              IOT Integrated Mobility
             </h2>
             <p className="font-body mt-6 text-[18px] leading-relaxed text-[#4a4a4d]">
-              As the world embraces cleaner energy, LENCAR leads the shift to sustainable e-mobility. Developed by SL-Mobility, LENCAR offers 100% locally developed and assembled e-scooters with modern European-inspired designs—an eco-friendly, affordable, and smart choice for urban travel.
+              As the world accelerates toward cleaner energy, LENCAR stands at
+              the forefront of sustainable e‑mobility. Our state‑of‑the‑art e
+              scooters combine modern European inspired design with smart IoT
+              integration, offering an eco‑friendly, affordable, and intelligent
+              solution for urban travel.
             </p>
           </div>
 
@@ -78,7 +88,11 @@ export default function AboutUsPage() {
                   Our objective
                 </h3>
                 <p className="font-body mt-3 text-[17px] leading-relaxed text-[#3a3a3d]">
-                  Our objective is to develop futureproof e-mobility solutions so that Sri Lankan roads will have quiet, eco-friendly, and efficient vehicles for a greener and cleaner future.
+                  Our objective is to pioneer future‑ready e‑mobility solutions,
+                  ensuring that Sri Lankan roads are transformed with quiet,
+                  eco‑friendly, and highly efficient vehicles. By making this
+                  change, we aim to create a greener, cleaner, and more
+                  sustainable future for all.
                 </p>
               </div>
               <div>
@@ -86,21 +100,42 @@ export default function AboutUsPage() {
                   Innovation for Sri Lanka
                 </h3>
                 <p className="font-body mt-3 text-[17px] leading-relaxed text-[#3a3a3d]">
-                  Driven with a purpose to deliver sustainable e-mobility solutions to meet the future needs of transportation, SL Mobility began its journey back in 2015 with a team of qualified automobile engineers from the University of Moratuwa, Sri Lanka. This local expertise was combined with further knowledge and innovative thinking from a group of European establishments. As the team continues to push the boundaries of e-mobility, the result is a breakthrough e-mobility innovation for Sri Lanka.
+                  Driven by a clear purpose to deliver sustainable e‑mobility
+                  solutions for the future of transportation, SL Mobility began
+                  its journey in 2015 with a team of qualified automobile
+                  engineers from the University of Moratuwa. This local
+                  expertise was strengthened through collaboration with leading
+                  European establishments, blending knowledge and innovative
+                  thinking to create breakthrough e‑mobility solutions tailored
+                  for Sri Lanka.
                 </p>
               </div>
             </div>
           </div>
           <div className="flex flex-col justify-center gap-4 mt-15">
-
             <p className="font-body mt-0 text-[17px] leading-relaxed text-[#3a3a3d]">
-              Our core business involves the development of electric motors and other powertrain-related components for electric vehicles. This is brought about by our strong commitment to Research and Development and the constant efforts to develop, implement and innovate solutions. This allows us to stay ahead of the curve in terms of global progress in this evolving industry. Knowledge gathering, product testing and process implementation play a vital role in our research & development process. Our R & D team consists of highly skilled and qualified engineers and scientists with a passion to make a positive change to the environment.
+              Our core business focuses on the development of electric motors
+              and advanced powertrain components for electric vehicles. This
+              commitment is powered by continuous Research & Development, where
+              knowledge gathering, product testing, and process implementation
+              play a vital role. Our R&D team—comprising highly skilled
+              engineers and scientists—works passionately to drive innovation
+              while making a positive impact on the environment. In 2024, we
+              launched the first fleet of LENCAR e‑Scooters in Sri Lanka,
+              deploying over 300 units. These scooters were rigorously tested
+              across diverse road conditions, driving styles, and weather
+              patterns. With the support of our loyal dealer network, we
+              identified and addressed minor operational challenges, developing
+              localized solutions that strengthened product reliability. Looking
+              ahead, we are committed to shaping a brilliant future through data
+              science, advanced R&D, and continuous innovation, ensuring Sri
+              Lanka remains at the forefront of the global e‑mobility
+              revolution.
             </p>
           </div>
         </section>
 
         {/* <NewsletterSignup /> */}
-
       </main>
 
       <Footer />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Route, Leaf } from "lucide-react";
+import { Route, Leaf, ChevronRight } from "lucide-react";
 import { useScooterDistance } from "@/hooks/useScooterDistance";
 
 // Full precision, comma-grouped — no compact ("2.1M") abbreviation.
@@ -74,8 +74,17 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
 
     const placeholderRef = useRef<HTMLDivElement>(null);
     const [pinned, setPinned] = useState(false);
+    // Whether the pinned panel is tucked away to the side (only the tab shows).
+    const [collapsed, setCollapsed] = useState(true);
 
-    // Reveal once the bar first scrolls into view.
+    // Show immediately on first load, don't wait for a scroll-triggered
+    // IntersectionObserver callback.
+    useEffect(() => {
+        setActive(true);
+    }, [setActive]);
+
+    // Reveal once the bar first scrolls into view (kept as a fallback/guard
+    // in case the hero isn't in view on mount for some layouts).
     useEffect(() => {
         const el = placeholderRef.current;
         if (!el) return;
@@ -95,7 +104,12 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
         if (!el) return;
         const io = new IntersectionObserver(
             ([entry]) => {
-                setPinned(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+                const nowPinned = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+                setPinned(nowPinned);
+                // Every time it freshly becomes pinned, snap it back to the
+                // collapsed (tucked-to-the-side) state — the user has to
+                // tap the tab to bring it back out.
+                if (nowPinned) setCollapsed(true);
             },
             { threshold: 0 }
         );
@@ -144,26 +158,72 @@ export default function ImpactStats({ distanceKm }: { distanceKm?: number }) {
                 {renderStats()}
             </div>
 
-            {pinned && <div className="stat-pinned">{renderStats()}</div>}
+            {pinned && (
+                <>
+                    <button
+                        type="button"
+                        className="stat-tab"
+                        onClick={() => setCollapsed((c) => !c)}
+                        aria-label={collapsed ? "Show impact stats" : "Hide impact stats"}
+                        aria-expanded={!collapsed}
+                    >
+                        <ChevronRight
+                            className={`h-4 w-4 transition-transform duration-300 ${collapsed ? "" : "rotate-180"}`}
+                            strokeWidth={2.6}
+                        />
+                    </button>
+
+                    <div className={`stat-pinned ${collapsed ? "stat-pinned--collapsed" : ""}`}>
+                        {renderStats()}
+                    </div>
+                </>
+            )}
 
             <style jsx>{`
-                .stat-pinned {
+                .stat-tab {
                     position: fixed;
                     top: 16px;
                     left: 16px;
-                    z-index: 60;
-                    animation: statPinnedIn 0.3s ease both;
+                    z-index: 61;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 9999px;
+                    border: 1px solid rgba(124, 255, 107, 0.3);
+                    background: rgba(1, 20, 8, 0.85);
+                    color: #01e044;
+                    cursor: pointer;
+                    backdrop-filter: blur(6px);
+                    transition: background 0.2s ease;
                 }
 
-                @keyframes statPinnedIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(-12px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
+                .stat-tab:hover {
+                    background: rgba(1, 20, 8, 1);
+                }
+
+                .stat-pinned {
+                    position: fixed;
+                    top: 12px;
+                    left: 60px;
+                    z-index: 60;
+                    background: rgba(1, 20, 8, 0.85);
+                    backdrop-filter: blur(6px);
+                    border-radius: 12px;
+                    padding: 12px 16px;
+                    opacity: 1;
+                    transform: translateX(0);
+                    pointer-events: auto;
+                    transition:
+                        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.35s ease;
+                }
+
+                .stat-pinned--collapsed {
+                    opacity: 0;
+                    transform: translateX(-24px);
+                    pointer-events: none;
                 }
 
                 :global(.stat-flip) {

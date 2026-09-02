@@ -38,9 +38,9 @@ export default function CreativeSlider() {
   return (
     <section className="creative-showcase--slider">
 
-      <div className="fixed top-24 left-4 z-50">
-        <ImpactStats />
-      </div>
+      <div className="absolute top-24 left-4 z-50">
+  <ImpactStats />
+</div>
 
       <Swiper
         modules={[Autoplay, Navigation, Pagination, Parallax]}
@@ -152,6 +152,8 @@ export default function CreativeSlider() {
           </div>
         </div>
       </Swiper>
+
+      
     </section>
   );
 }
