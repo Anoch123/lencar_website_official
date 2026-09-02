@@ -36,7 +36,7 @@ const FEATURES = [
     title: "Swapping Network",
     description:
       "A growing network of Battery Swapping Stations across Sri Lanka. Find the nearest one and get moving in minutes.",
-    popupType: "network",
+    href: "/bss-points",
     cta: "Find a station",
   },
   {

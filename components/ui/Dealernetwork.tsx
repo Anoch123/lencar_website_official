@@ -239,7 +239,7 @@ export default function DealerNetwork() {
             </span>
 
             <div className="relative">
-              <p className="font-body flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b6b70]">
+              <p className="font-body flex items-center gap-2 text-[14px] font-bold italic uppercase tracking-[0.12em] text-[#0b0b0c]">
                 <span
                   aria-hidden="true"
                   className="h-[6px] w-[6px] rounded-full"
@@ -248,7 +248,7 @@ export default function DealerNetwork() {
                 {/* {dealer.region} · {dealer.district} */}
                 {dealer.name}
               </p>
-              <h3 className="font-display mt-2 text-[19px] font-black uppercase italic tracking-tight text-[#0b0b0c]">
+              <h3 className="font-display mt-2 text-[15px] font-semibold uppercase tracking-tight text-[#6b6b70]">
                 {dealer.dealer_name}
               </h3>
               <p className="font-body mt-3 text-[14px] leading-relaxed text-[#4a4a4d]">

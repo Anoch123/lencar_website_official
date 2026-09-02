@@ -277,7 +277,7 @@ export default function BSSPointsList({
 
               <div className="relative">
                 <p
-                  className={`font-body flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] ${
+                  className={`font-body flex items-center gap-2 text-[14px] font-bold italic uppercase tracking-[0.12em] ${
                     isNearest ? "text-white/70" : "text-[#6b6b70]"
                   }`}
                 >
@@ -289,7 +289,7 @@ export default function BSSPointsList({
                   {point.region} · {point.district}
                 </p>
                 <h3
-                  className={`font-display mt-2 text-[19px] font-black uppercase italic tracking-tight ${
+                  className={`font-display mt-2 text-[15px] font-semibold uppercase tracking-tight ${
                     isNearest ? "text-white" : "text-[#0b0b0c]"
                   }`}
                 >

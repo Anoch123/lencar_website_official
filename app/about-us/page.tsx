@@ -120,14 +120,22 @@ export default function AboutUsPage() {
               knowledge gathering, product testing, and process implementation
               play a vital role. Our R&D team—comprising highly skilled
               engineers and scientists—works passionately to drive innovation
-              while making a positive impact on the environment. In 2024, we
+              while making a positive impact on the environment.
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-4 mt-5">
+            <p className="font-body mt-0 text-[17px] leading-relaxed text-[#3a3a3d]">In 2024, we
               launched the first fleet of LENCAR e‑Scooters in Sri Lanka,
               deploying over 300 units. These scooters were rigorously tested
               across diverse road conditions, driving styles, and weather
               patterns. With the support of our loyal dealer network, we
               identified and addressed minor operational challenges, developing
-              localized solutions that strengthened product reliability. Looking
-              ahead, we are committed to shaping a brilliant future through data
+              localized solutions that strengthened product reliability.
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-4 mt-5">
+            <p className="font-body mt-0 text-[17px] leading-relaxed text-[#3a3a3d]">
+              Looking ahead, we are committed to shaping a brilliant future through data
               science, advanced R&D, and continuous innovation, ensuring Sri
               Lanka remains at the forefront of the global e‑mobility
               revolution.
